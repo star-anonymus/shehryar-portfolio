@@ -3,7 +3,7 @@ import AnimatedSection from "./AnimatedSection";
 import AnimatedCounter from "./AnimatedCounter";
 
 const stats = [
-  { label: "Years Experience", value: 1, suffix: "+" },
+  { label: "Years Experience", value: 3, suffix: "+" },
   { label: "Projects Built", value: 15, suffix: "+" },
   { label: "Technologies", value: 20, suffix: "+" },
   { label: "Certifications", value: 4, suffix: "" },
@@ -22,8 +22,8 @@ export default function About() {
           {/* Left */}
           <AnimatedSection direction="left" className="space-y-5">
             <p className="text-gray-400 text-lg leading-relaxed">
-              I&apos;m a <span className="text-white font-semibold">Software Engineer</span> currently in
-              my 7th semester at{" "}
+              I&apos;m a <span className="text-white font-semibold">Software Engineer</span> studying
+              BS Software Engineering at{" "}
               <span className="text-indigo-400 font-medium">Riphah International University, Islamabad</span>.
             </p>
             <p className="text-gray-400 text-lg leading-relaxed">
@@ -40,7 +40,7 @@ export default function About() {
             <div className="flex flex-col gap-3 pt-2 border-t border-white/5">
               {[
                 { icon: MapPin, text: "Islamabad, Pakistan" },
-                { icon: GraduationCap, text: "BS Software Engineering — Riphah International University (2022–2027)" },
+                { icon: GraduationCap, text: "BS Software Engineering — Riphah International University" },
                 { icon: Briefcase, text: "QA Developer @ Authox · Full-time" },
               ].map(({ icon: Icon, text }) => (
                 <div key={text} className="flex items-start gap-3 text-gray-400 pt-3">
