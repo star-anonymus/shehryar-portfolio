@@ -100,7 +100,7 @@ const liveTools = [
     description: "Free online file converter — image format conversion, compression, images to PDF, and PDF merger. Runs 100% in your browser, no uploads.",
     tags: ["Next.js", "pdf-lib", "browser-image-compression", "TypeScript"],
     github: "https://github.com/star-anonymus/file-converter",
-    demo: "https://file-converter-tools.vercel.app",
+    demo: "https://file-converter-inky.vercel.app",
     icon: "⚡",
     color: "blue",
     status: "live",
