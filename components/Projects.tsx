@@ -247,30 +247,30 @@ const liveTools = [
   },
 ];
 
-const colorMap: Record<string, { border: string; badge: string; icon: string; glow: string }> = {
-  blue:    { border: "border-blue-500/30 hover:border-blue-500/60",    badge: "bg-blue-500/10 text-blue-300",    icon: "bg-blue-500/10 text-blue-400",    glow: "hover:shadow-blue-500/10" },
-  violet:  { border: "border-violet-500/30 hover:border-violet-500/60",  badge: "bg-violet-500/10 text-violet-300",  icon: "bg-violet-500/10 text-violet-400",  glow: "hover:shadow-violet-500/10" },
-  emerald: { border: "border-emerald-500/30 hover:border-emerald-500/60", badge: "bg-emerald-500/10 text-emerald-300", icon: "bg-emerald-500/10 text-emerald-400", glow: "hover:shadow-emerald-500/10" },
-  orange:  { border: "border-orange-500/30 hover:border-orange-500/60",  badge: "bg-orange-500/10 text-orange-300",  icon: "bg-orange-500/10 text-orange-400",  glow: "hover:shadow-orange-500/10" },
-  pink:    { border: "border-pink-500/30 hover:border-pink-500/60",    badge: "bg-pink-500/10 text-pink-300",    icon: "bg-pink-500/10 text-pink-400",    glow: "hover:shadow-pink-500/10" },
-  indigo:  { border: "border-indigo-500/30 hover:border-indigo-500/60",  badge: "bg-indigo-500/10 text-indigo-300",  icon: "bg-indigo-500/10 text-indigo-400",  glow: "hover:shadow-indigo-500/10" },
-  teal:    { border: "border-teal-500/30 hover:border-teal-500/60",    badge: "bg-teal-500/10 text-teal-300",    icon: "bg-teal-500/10 text-teal-400",    glow: "hover:shadow-teal-500/10" },
-  purple:  { border: "border-purple-500/30 hover:border-purple-500/60",  badge: "bg-purple-500/10 text-purple-300",  icon: "bg-purple-500/10 text-purple-400",  glow: "hover:shadow-purple-500/10" },
-  amber:   { border: "border-amber-500/30 hover:border-amber-500/60",   badge: "bg-amber-500/10 text-amber-300",   icon: "bg-amber-500/10 text-amber-400",   glow: "hover:shadow-amber-500/10" },
-  rose:    { border: "border-rose-500/30 hover:border-rose-500/60",    badge: "bg-rose-500/10 text-rose-300",    icon: "bg-rose-500/10 text-rose-400",    glow: "hover:shadow-rose-500/10" },
-  green:   { border: "border-green-500/30 hover:border-green-500/60",   badge: "bg-green-500/10 text-green-300",   icon: "bg-green-500/10 text-green-400",   glow: "hover:shadow-green-500/10" },
-  red:     { border: "border-red-500/30 hover:border-red-500/60",     badge: "bg-red-500/10 text-red-300",     icon: "bg-red-500/10 text-red-400",     glow: "hover:shadow-red-500/10" },
-  cyan:    { border: "border-cyan-500/30 hover:border-cyan-500/60",    badge: "bg-cyan-500/10 text-cyan-300",    icon: "bg-cyan-500/10 text-cyan-400",    glow: "hover:shadow-cyan-500/10" },
-  gray:    { border: "border-gray-500/30 hover:border-gray-500/60",    badge: "bg-gray-500/10 text-gray-300",    icon: "bg-gray-500/10 text-gray-400",    glow: "hover:shadow-gray-500/10" },
-  slate:   { border: "border-slate-500/30 hover:border-slate-500/60",   badge: "bg-slate-500/10 text-slate-300",   icon: "bg-slate-500/10 text-slate-400",   glow: "hover:shadow-slate-500/10" },
+const colorMap: Record<string, { border: string; badge: string; icon: string }> = {
+  blue:    { border: "border-blue-200 hover:border-blue-300",    badge: "bg-blue-50 text-blue-700",    icon: "bg-blue-50 text-blue-500" },
+  violet:  { border: "border-violet-200 hover:border-violet-300",  badge: "bg-violet-50 text-violet-700",  icon: "bg-violet-50 text-violet-500" },
+  emerald: { border: "border-emerald-200 hover:border-emerald-300", badge: "bg-emerald-50 text-emerald-700", icon: "bg-emerald-50 text-emerald-500" },
+  orange:  { border: "border-orange-200 hover:border-orange-300",  badge: "bg-orange-50 text-orange-700",  icon: "bg-orange-50 text-orange-500" },
+  pink:    { border: "border-pink-200 hover:border-pink-300",    badge: "bg-pink-50 text-pink-700",    icon: "bg-pink-50 text-pink-500" },
+  indigo:  { border: "border-indigo-200 hover:border-indigo-300",  badge: "bg-indigo-50 text-indigo-700",  icon: "bg-indigo-50 text-indigo-500" },
+  teal:    { border: "border-teal-200 hover:border-teal-300",    badge: "bg-teal-50 text-teal-700",    icon: "bg-teal-50 text-teal-500" },
+  purple:  { border: "border-purple-200 hover:border-purple-300",  badge: "bg-purple-50 text-purple-700",  icon: "bg-purple-50 text-purple-500" },
+  amber:   { border: "border-amber-200 hover:border-amber-300",   badge: "bg-amber-50 text-amber-700",   icon: "bg-amber-50 text-amber-500" },
+  rose:    { border: "border-rose-200 hover:border-rose-300",    badge: "bg-rose-50 text-rose-700",    icon: "bg-rose-50 text-rose-500" },
+  green:   { border: "border-green-200 hover:border-green-300",   badge: "bg-green-50 text-green-700",   icon: "bg-green-50 text-green-500" },
+  red:     { border: "border-red-200 hover:border-red-300",     badge: "bg-red-50 text-red-700",     icon: "bg-red-50 text-red-500" },
+  cyan:    { border: "border-cyan-200 hover:border-cyan-300",    badge: "bg-cyan-50 text-cyan-700",    icon: "bg-cyan-50 text-cyan-500" },
+  gray:    { border: "border-slate-200 hover:border-slate-300",    badge: "bg-slate-50 text-slate-700",    icon: "bg-slate-50 text-slate-500" },
+  slate:   { border: "border-slate-200 hover:border-slate-300",   badge: "bg-slate-50 text-slate-700",   icon: "bg-slate-50 text-slate-500" },
 };
 
 const categoryColors: Record<string, string> = {
-  "Full-Stack": "text-indigo-300 bg-indigo-500/10 border-indigo-500/25",
-  Backend:      "text-purple-300 bg-purple-500/10 border-purple-500/25",
-  Security:     "text-pink-300 bg-pink-500/10 border-pink-500/25",
-  Desktop:      "text-sky-300 bg-sky-500/10 border-sky-500/25",
-  Enterprise:   "text-amber-300 bg-amber-500/10 border-amber-500/25",
+  "Full-Stack": "text-indigo-700 bg-indigo-50 border-indigo-200",
+  Backend:      "text-purple-700 bg-purple-50 border-purple-200",
+  Security:     "text-pink-700 bg-pink-50 border-pink-200",
+  Desktop:      "text-sky-700 bg-sky-50 border-sky-200",
+  Enterprise:   "text-amber-700 bg-amber-50 border-amber-200",
 };
 
 export default function Projects() {
@@ -284,9 +284,9 @@ export default function Projects() {
 
         {/* Dev Projects */}
         <AnimatedSection className="text-center mb-16">
-          <p className="text-indigo-400 text-sm font-semibold uppercase tracking-widest mb-3">Portfolio</p>
-          <h2 className="text-4xl sm:text-5xl font-bold text-white">Projects I&apos;ve Built</h2>
-          <p className="text-gray-500 mt-4 max-w-xl mx-auto">
+          <p className="text-indigo-600 text-sm font-bold uppercase tracking-widest mb-3">Portfolio</p>
+          <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900">Projects I&apos;ve Built</h2>
+          <p className="text-slate-500 mt-4 max-w-xl mx-auto">
             Personal projects, university work, and professional systems built at companies.
           </p>
         </AnimatedSection>
@@ -294,26 +294,26 @@ export default function Projects() {
         {/* Featured */}
         {featured.map((p) => (
           <AnimatedSection key={p.title} className="mb-8">
-            <div className="relative rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden group hover:border-indigo-500/30 transition-all duration-300">
+            <div className="relative rounded-2xl border border-slate-200 bg-white overflow-hidden group card-shadow hover:border-indigo-200 transition-all duration-300">
               <div className={`h-1 w-full bg-gradient-to-r ${p.accent}`} />
               <div className="p-8">
                 <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
                   <div>
-                    <span className="text-xs font-bold text-indigo-400 uppercase tracking-widest">⭐ Featured Project</span>
-                    <h3 className="text-2xl font-bold text-white mt-1">{p.title}</h3>
+                    <span className="text-xs font-bold text-indigo-600 uppercase tracking-widest">⭐ Featured Project</span>
+                    <h3 className="text-2xl font-bold text-slate-900 mt-1">{p.title}</h3>
                   </div>
                   <div className="flex gap-3">
                     {p.github && (
-                      <a href={p.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/10 bg-white/5 text-gray-400 hover:text-white hover:border-white/20 transition-all text-sm">
+                      <a href={p.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-600 hover:text-indigo-600 hover:border-indigo-200 transition-all text-sm font-medium">
                         <FiGithub size={15} /> Code
                       </a>
                     )}
                   </div>
                 </div>
-                <p className="text-gray-400 leading-relaxed mb-6 max-w-3xl">{p.description}</p>
+                <p className="text-slate-500 leading-relaxed mb-6 max-w-3xl">{p.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {p.tags.map((tag) => (
-                    <span key={tag} className="px-3 py-1 rounded-full text-xs font-medium border border-white/10 bg-white/5 text-gray-300">{tag}</span>
+                    <span key={tag} className="px-3 py-1 rounded-full text-xs font-medium border border-slate-200 bg-slate-50 text-slate-600">{tag}</span>
                   ))}
                 </div>
               </div>
@@ -325,23 +325,23 @@ export default function Projects() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-24">
           {rest.map((p, i) => (
             <AnimatedSection key={p.title} delay={i * 0.06}>
-              <div className="h-full relative rounded-2xl border border-white/8 bg-white/[0.02] overflow-hidden flex flex-col group hover:border-white/15 hover:-translate-y-1 transition-all duration-300">
-                <div className={`h-0.5 w-full bg-gradient-to-r ${p.accent} opacity-60 group-hover:opacity-100 transition-opacity`} />
+              <div className="h-full relative rounded-2xl border border-slate-200 bg-white overflow-hidden flex flex-col group card-shadow hover:border-indigo-200 transition-all duration-300">
+                <div className={`h-0.5 w-full bg-gradient-to-r ${p.accent} opacity-70 group-hover:opacity-100 transition-opacity`} />
                 <div className="p-5 flex flex-col flex-1">
                   <div className="flex items-start justify-between mb-3">
-                    <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border ${categoryColors[p.category] ?? "text-gray-400 bg-white/5 border-white/10"}`}>{p.category}</span>
+                    <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border ${categoryColors[p.category] ?? "text-slate-600 bg-slate-50 border-slate-200"}`}>{p.category}</span>
                     <div className="flex gap-2">
-                      {p.github && <a href={p.github} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors"><FiGithub size={16} /></a>}
-                      {p.demo && <a href={p.demo} target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors"><ExternalLink size={16} /></a>}
+                      {p.github && <a href={p.github} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-900 transition-colors"><FiGithub size={16} /></a>}
+                      {p.demo && <a href={p.demo} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-indigo-600 transition-colors"><ExternalLink size={16} /></a>}
                     </div>
                   </div>
-                  <h3 className="text-white font-bold text-sm mb-2 group-hover:text-indigo-200 transition-colors">{p.title}</h3>
-                  <p className="text-gray-500 text-xs leading-relaxed flex-1">{p.description}</p>
+                  <h3 className="text-slate-900 font-bold text-sm mb-2 group-hover:text-indigo-600 transition-colors">{p.title}</h3>
+                  <p className="text-slate-500 text-xs leading-relaxed flex-1">{p.description}</p>
                   <div className="flex flex-wrap gap-1.5 mt-4">
                     {p.tags.slice(0, 4).map((tag) => (
-                      <span key={tag} className="px-2 py-0.5 rounded text-xs text-gray-500 bg-white/5 border border-white/8">{tag}</span>
+                      <span key={tag} className="px-2 py-0.5 rounded text-xs text-slate-500 bg-slate-50 border border-slate-200">{tag}</span>
                     ))}
-                    {p.tags.length > 4 && <span className="px-2 py-0.5 rounded text-xs text-gray-600">+{p.tags.length - 4}</span>}
+                    {p.tags.length > 4 && <span className="px-2 py-0.5 rounded text-xs text-slate-400">+{p.tags.length - 4}</span>}
                   </div>
                 </div>
               </div>
@@ -351,14 +351,14 @@ export default function Projects() {
 
         {/* ── Live Tools Section ── */}
         <AnimatedSection className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-indigo-500/25 bg-indigo-500/10 text-indigo-300 text-xs font-semibold mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-indigo-200 bg-indigo-50 text-indigo-700 text-xs font-bold mb-4">
             <Zap size={12} /> Free Utility Websites
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white">Live Tools I&apos;ve Built</h2>
-          <p className="text-gray-500 mt-3 max-w-xl mx-auto text-sm">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">Live Tools I&apos;ve Built</h2>
+          <p className="text-slate-500 mt-3 max-w-xl mx-auto text-sm">
             A growing collection of free, browser-based utility tools — no signup, no watermarks, no limits.
-            <span className="ml-2 inline-flex items-center gap-1 text-green-400 font-medium">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse inline-block" />
+            <span className="ml-2 inline-flex items-center gap-1 text-green-600 font-semibold">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse inline-block" />
               {liveCount} live · {liveTools.length - liveCount} coming soon
             </span>
           </p>
@@ -370,7 +370,7 @@ export default function Projects() {
             const isLive = tool.status === "live";
             return (
               <AnimatedSection key={tool.title} delay={i * 0.04}>
-                <div className={`h-full rounded-2xl border bg-white/[0.02] p-5 flex flex-col gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${c.border} ${c.glow} ${!isLive ? "opacity-60" : ""}`}>
+                <div className={`h-full rounded-2xl border bg-white p-5 flex flex-col gap-4 card-shadow transition-all duration-300 hover:-translate-y-1 ${c.border} ${!isLive ? "opacity-60" : ""}`}>
                   {/* Top row */}
                   <div className="flex items-start justify-between">
                     <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg ${c.icon}`}>
@@ -378,11 +378,11 @@ export default function Projects() {
                     </div>
                     <div className="flex items-center gap-2">
                       {isLive ? (
-                        <span className="flex items-center gap-1 text-xs font-semibold text-green-400 bg-green-500/10 px-2.5 py-1 rounded-full border border-green-500/20">
-                          <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" /> Live
+                        <span className="flex items-center gap-1 text-xs font-semibold text-green-700 bg-green-50 px-2.5 py-1 rounded-full border border-green-200">
+                          <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" /> Live
                         </span>
                       ) : (
-                        <span className="text-xs font-semibold text-gray-500 bg-white/5 px-2.5 py-1 rounded-full border border-white/8">
+                        <span className="text-xs font-semibold text-slate-500 bg-slate-50 px-2.5 py-1 rounded-full border border-slate-200">
                           Coming Soon
                         </span>
                       )}
@@ -391,20 +391,20 @@ export default function Projects() {
 
                   {/* Content */}
                   <div className="flex-1">
-                    <h3 className="text-white font-bold text-sm mb-1.5">{tool.title}</h3>
-                    <p className="text-gray-500 text-xs leading-relaxed">{tool.description}</p>
+                    <h3 className="text-slate-900 font-bold text-sm mb-1.5">{tool.title}</h3>
+                    <p className="text-slate-500 text-xs leading-relaxed">{tool.description}</p>
                   </div>
 
                   {/* Tags */}
                   <div className="flex flex-wrap gap-1.5">
                     {tool.tags.slice(0, 3).map((tag) => (
-                      <span key={tag} className="px-2 py-0.5 rounded text-xs text-gray-500 bg-white/5 border border-white/8">{tag}</span>
+                      <span key={tag} className="px-2 py-0.5 rounded text-xs text-slate-500 bg-slate-50 border border-slate-200">{tag}</span>
                     ))}
                   </div>
 
                   {/* Links */}
                   {isLive && (
-                    <div className="flex gap-2 pt-1 border-t border-white/5">
+                    <div className="flex gap-2 pt-1 border-t border-slate-100">
                       {tool.demo && (
                         <a href={tool.demo} target="_blank" rel="noopener noreferrer"
                           className={`flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-semibold transition-all duration-200 ${c.badge} hover:opacity-80`}>
@@ -413,7 +413,7 @@ export default function Projects() {
                       )}
                       {tool.github && (
                         <a href={tool.github} target="_blank" rel="noopener noreferrer"
-                          className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold text-gray-400 bg-white/5 hover:bg-white/10 hover:text-white transition-all duration-200">
+                          className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold text-slate-500 bg-slate-50 hover:bg-slate-100 hover:text-slate-900 border border-slate-200 transition-all duration-200">
                           <FiGithub size={12} /> Code
                         </a>
                       )}
