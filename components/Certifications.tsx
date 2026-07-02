@@ -1,4 +1,4 @@
-import { Award, ExternalLink } from "lucide-react";
+import { Award } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
 const certs = [
@@ -9,30 +9,18 @@ const certs = [
 ];
 
 const colorMap: Record<string, { border: string; icon: string; badge: string }> = {
-  indigo: {
-    border: "border-indigo-500/20 hover:border-indigo-500/40",
-    icon: "text-indigo-400",
-    badge: "bg-indigo-500/10 text-indigo-300",
-  },
-  purple: {
-    border: "border-purple-500/20 hover:border-purple-500/40",
-    icon: "text-purple-400",
-    badge: "bg-purple-500/10 text-purple-300",
-  },
-  pink: {
-    border: "border-pink-500/20 hover:border-pink-500/40",
-    icon: "text-pink-400",
-    badge: "bg-pink-500/10 text-pink-300",
-  },
+  indigo: { border: "border-indigo-100 hover:border-indigo-200 hover:shadow-indigo-100/60", icon: "text-indigo-500 bg-indigo-50", badge: "bg-indigo-50 text-indigo-700" },
+  purple: { border: "border-purple-100 hover:border-purple-200 hover:shadow-purple-100/60", icon: "text-purple-500 bg-purple-50", badge: "bg-purple-50 text-purple-700" },
+  pink:   { border: "border-pink-100 hover:border-pink-200 hover:shadow-pink-100/60",   icon: "text-pink-500 bg-pink-50",   badge: "bg-pink-50 text-pink-700" },
 };
 
 export default function Certifications() {
   return (
-    <section className="py-20 px-6">
+    <section className="py-20 px-6 section-alt">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection className="text-center mb-12">
-          <p className="text-indigo-400 text-sm font-semibold uppercase tracking-widest mb-3">Credentials</p>
-          <h2 className="text-4xl font-bold text-white">Certifications</h2>
+          <p className="text-indigo-600 text-sm font-bold uppercase tracking-widest mb-3">Credentials</p>
+          <h2 className="text-4xl font-extrabold text-slate-900">Certifications</h2>
         </AnimatedSection>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -40,19 +28,15 @@ export default function Certifications() {
             const colors = colorMap[c.color];
             return (
               <AnimatedSection key={c.name} delay={i * 0.1}>
-                <div className={`rounded-2xl border bg-white/[0.02] p-5 flex flex-col gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${colors.border}`}>
-                  <div className={`w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center ${colors.icon}`}>
+                <div className={`rounded-2xl border bg-white p-5 flex flex-col gap-4 transition-all duration-300 card-shadow ${colors.border}`}>
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${colors.icon}`}>
                     <Award size={20} />
                   </div>
                   <div className="flex-1">
-                    <p className="font-semibold text-white text-sm leading-snug">{c.name}</p>
-                    <p className="text-gray-500 text-xs mt-1">{c.issuer}</p>
+                    <p className="font-semibold text-slate-900 text-sm leading-snug">{c.name}</p>
+                    <p className="text-slate-400 text-xs mt-1">{c.issuer}</p>
                   </div>
-                  <div className="flex items-center justify-between">
-                    <span className={`text-xs font-medium px-2.5 py-1 rounded-full ${colors.badge}`}>
-                      {c.date}
-                    </span>
-                  </div>
+                  <span className={`text-xs font-semibold px-2.5 py-1 rounded-full self-start ${colors.badge}`}>{c.date}</span>
                 </div>
               </AnimatedSection>
             );
