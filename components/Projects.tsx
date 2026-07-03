@@ -117,13 +117,13 @@ const liveTools = [
   },
   {
     title: "SecurePass",
-    description: "Generate strong, customizable passwords with real-time strength analysis. One-click copy, history, and entropy score.",
-    tags: ["Next.js", "TypeScript", "Crypto API"],
-    github: null,
-    demo: null,
+    description: "Generate strong, customizable passwords with real-time strength analysis, passphrase & PIN generator. Uses Web Crypto API — nothing leaves your browser.",
+    tags: ["Next.js", "TypeScript", "Web Crypto API"],
+    github: "https://github.com/star-anonymus/password-generator",
+    demo: "https://securepass-tools.vercel.app",
     icon: "🔐",
     color: "emerald",
-    status: "coming",
+    status: "live",
   },
   {
     title: "UnitConvert",
