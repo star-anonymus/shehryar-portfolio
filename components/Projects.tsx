@@ -127,13 +127,13 @@ const liveTools = [
   },
   {
     title: "UnitConvert",
-    description: "Convert length, weight, temperature, currency, area, volume, and more — instantly. Clean interface with smart unit suggestions.",
-    tags: ["Next.js", "TypeScript", "Exchange Rate API"],
-    github: null,
-    demo: null,
+    description: "Convert length, weight, temperature, area, volume, and speed — instantly. Bidirectional swap, full conversion table, metric & imperial. All in-browser.",
+    tags: ["Next.js", "TypeScript", "Tailwind"],
+    github: "https://github.com/star-anonymus/unit-converter",
+    demo: "https://unitconvert-tools.vercel.app",
     icon: "📐",
     color: "orange",
-    status: "coming",
+    status: "live",
   },
   {
     title: "DateCalc",
