@@ -6,7 +6,8 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden bg-white">
+    <section className="relative flex flex-col items-center justify-center px-6 overflow-hidden bg-white"
+      style={{ minHeight: "calc(100vh - 64px)", marginTop: "64px" }}>
       {/* Soft gradient blobs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-indigo-100 rounded-full blur-[120px] opacity-60" />
@@ -18,7 +19,8 @@ export default function Hero() {
       <div className="absolute inset-0 opacity-[0.4]"
         style={{ backgroundImage: "radial-gradient(circle, #cbd5e1 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
 
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
+      {/* Hero content — vertically centered in the space below navbar */}
+      <div className="relative z-10 max-w-4xl mx-auto text-center py-16">
         {/* Name */}
         <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
           className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-4 leading-tight text-slate-900">
@@ -35,9 +37,9 @@ export default function Hero() {
           />
         </motion.div>
 
-        {/* Available badge — below title so it reads as hero content, not nav */}
+        {/* Available badge */}
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.25 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-green-200 bg-green-50 text-green-700 text-sm font-medium mb-6 shadow-sm">
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-green-200 bg-green-50 text-green-700 text-sm font-medium mb-8 shadow-sm">
           <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
           Available for opportunities
         </motion.div>
@@ -53,7 +55,7 @@ export default function Hero() {
 
         {/* CTAs */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex flex-wrap items-center justify-center gap-4 mb-12">
+          className="flex flex-wrap items-center justify-center gap-4 mb-14">
           <a href="#projects"
             className="px-7 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold transition-all duration-200 shadow-lg shadow-indigo-600/25 hover:-translate-y-0.5">
             View Projects
@@ -67,7 +69,7 @@ export default function Hero() {
 
         {/* Socials */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex items-center justify-center gap-6">
+          className="flex items-center justify-center gap-6 mb-8">
           {[
             { href: "https://github.com/star-anonymus", icon: <FiGithub size={20} />, label: "GitHub", hoverColor: "hover:text-slate-900" },
             { href: "https://linkedin.com/in/shehryar-ahmed-93834026b", icon: <FiLinkedin size={20} />, label: "LinkedIn", hoverColor: "hover:text-blue-600" },
@@ -80,14 +82,13 @@ export default function Hero() {
             </a>
           ))}
         </motion.div>
-      </div>
 
-      {/* Scroll cue */}
-      <motion.a href="#about" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-slate-400 hover:text-slate-600 transition-colors" aria-label="Scroll down">
-        <span className="text-xs tracking-widest uppercase font-medium">Scroll</span>
-        <ArrowDown size={16} className="animate-bounce" />
-      </motion.a>
+        {/* Scroll cue — inside content flow, not absolute, so it never overlaps */}
+        <motion.a href="#about" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}
+          className="inline-flex flex-col items-center gap-1 text-slate-300 hover:text-slate-500 transition-colors" aria-label="Scroll down">
+          <ArrowDown size={18} className="animate-bounce" />
+        </motion.a>
+      </div>
     </section>
   );
 }
