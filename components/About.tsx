@@ -4,8 +4,8 @@ import AnimatedCounter from "./AnimatedCounter";
 
 const stats = [
   { label: "Years Experience", value: 3, suffix: "+" },
-  { label: "Projects Built", value: 15, suffix: "+" },
-  { label: "Technologies", value: 20, suffix: "+" },
+  { label: "Projects Built", value: 20, suffix: "+" },
+  { label: "Technologies", value: 25, suffix: "+" },
   { label: "Certifications", value: 4, suffix: "" },
 ];
 
@@ -22,26 +22,25 @@ export default function About() {
           {/* Left */}
           <AnimatedSection direction="left" className="space-y-5">
             <p className="text-slate-600 text-lg leading-relaxed">
-              I&apos;m a <span className="text-slate-900 font-semibold">Software Engineer</span> studying
+              I&apos;m a <span className="text-slate-900 font-semibold">Backend-focused Full-Stack Developer</span> studying
               BS Software Engineering at{" "}
               <span className="text-indigo-600 font-semibold">Riphah International University, Islamabad</span>.
             </p>
             <p className="text-slate-600 text-lg leading-relaxed">
-              I specialize in full-stack development — building healthcare backends, Flutter mobile
-              apps, React dashboards, and RESTful APIs. I&apos;ve worked as a{" "}
-              <span className="text-slate-900 font-semibold">QA Developer at Authox</span> and a{" "}
-              <span className="text-slate-900 font-semibold">QA Project Manager at Corammers</span>.
+              I design scalable APIs and secure systems with{" "}
+              <span className="text-slate-900 font-semibold">Java / Spring Boot</span>,{" "}
+              <span className="text-slate-900 font-semibold">.NET / C#</span>, and{" "}
+              <span className="text-slate-900 font-semibold">Node.js / NestJS</span>. On the frontend I work with React, Next.js, and Tailwind CSS.
             </p>
             <p className="text-slate-600 text-lg leading-relaxed">
-              I care deeply about clean architecture, secure system design, and delivering reliable
-              software that actually works in production.
+              Currently building AI-powered SaaS products — healthcare, video generation, and automation platforms — while working full-time at Authox.
             </p>
 
             <div className="flex flex-col gap-3 pt-4 border-t border-slate-100">
               {[
-                { icon: MapPin, text: "Islamabad, Pakistan" },
+                { icon: MapPin, text: "Rawalpindi, Pakistan" },
                 { icon: GraduationCap, text: "BS Software Engineering — Riphah International University" },
-                { icon: Briefcase, text: "QA Developer @ Authox · Full-time" },
+                { icon: Briefcase, text: "QA Developer @ Authox · Full-time · Hybrid" },
               ].map(({ icon: Icon, text }) => (
                 <div key={text} className="flex items-start gap-3 text-slate-500 pt-2">
                   <Icon size={16} className="text-indigo-500 shrink-0 mt-0.5" />

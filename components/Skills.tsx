@@ -4,6 +4,7 @@ import {
   SiReact, SiNextdotjs, SiTailwindcss, SiFlutter, SiWordpress,
   SiDotnet, SiSpringboot, SiNodedotjs, SiNestjs,
   SiMysql, SiFirebase, SiGit, SiGithub, SiJira,
+  SiPostgresql, SiVite, SiPrisma,
 } from "react-icons/si";
 import { FaJava, FaDatabase } from "react-icons/fa";
 
@@ -20,7 +21,8 @@ const skillGroups = [
     category: "Frontend", color: "purple",
     skills: [
       { name: "React", icon: SiReact }, { name: "Next.js", icon: SiNextdotjs },
-      { name: "Tailwind CSS", icon: SiTailwindcss }, { name: "WordPress", icon: SiWordpress },
+      { name: "Tailwind CSS", icon: SiTailwindcss }, { name: "Vite", icon: SiVite },
+      { name: "WordPress", icon: SiWordpress },
     ],
   },
   {
@@ -36,7 +38,11 @@ const skillGroups = [
   },
   {
     category: "Databases", color: "purple",
-    skills: [{ name: "SQL Server", icon: FaDatabase }, { name: "MySQL", icon: SiMysql }, { name: "Firebase", icon: SiFirebase }],
+    skills: [
+      { name: "PostgreSQL", icon: SiPostgresql }, { name: "MySQL", icon: SiMysql },
+      { name: "SQL Server", icon: FaDatabase }, { name: "Firebase", icon: SiFirebase },
+      { name: "Prisma ORM", icon: SiPrisma },
+    ],
   },
   {
     category: "Tools", color: "pink",

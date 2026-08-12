@@ -15,6 +15,17 @@ const projects = [
     accent: "from-indigo-500 to-purple-500",
   },
   {
+    title: "Vytal Health — AI Healthcare SaaS",
+    description:
+      "AI-powered healthcare SaaS platform with a full product dashboard and real AI chatbot integration. Built as a multi-page app with React, TypeScript, Vite, and Tailwind CSS v4.",
+    tags: ["React", "TypeScript", "Vite", "Tailwind v4", "AI Chatbot"],
+    github: "https://github.com/star-anonymus/vytal-health",
+    demo: "https://vytal-health.vercel.app",
+    featured: false,
+    category: "Full-Stack",
+    accent: "from-teal-500 to-cyan-500",
+  },
+  {
     title: "NestJS RESTful APIs",
     description:
       "Production-ready RESTful API services with NestJS & TypeScript. Modular architecture, JWT auth, guards, interceptors, and clean code patterns for scalable backends.",

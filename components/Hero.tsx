@@ -37,7 +37,7 @@ export default function Hero() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
           className="text-xl sm:text-2xl font-semibold text-slate-500 mb-6 h-9">
           <TypeAnimation
-            sequence={["Software Engineer", 2000, "Full-Stack Developer", 2000, "Flutter & React Developer", 2000, "QA Specialist", 2000, ".NET & NestJS Developer", 2000]}
+            sequence={["Full-Stack Developer", 2000, "Java & Spring Boot Engineer", 2000, ".NET & NestJS Developer", 2000, "Flutter & React Developer", 2000, "AI SaaS Builder", 2000]}
             wrapper="span" speed={50} deletionSpeed={70} repeat={Infinity}
           />
         </motion.div>
@@ -45,11 +45,10 @@ export default function Hero() {
         {/* Description */}
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
           className="text-slate-500 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-          Building scalable web &amp; mobile applications with{" "}
-          <span className="text-indigo-600 font-semibold">React</span>,{" "}
-          <span className="text-purple-600 font-semibold">Next.js</span>,{" "}
-          <span className="text-pink-600 font-semibold">Flutter</span>, and{" "}
-          <span className="text-indigo-600 font-semibold">.NET / NestJS</span> — from pixel-perfect UIs to production-grade APIs.
+          Designing scalable APIs and secure systems with{" "}
+          <span className="text-indigo-600 font-semibold">Java / Spring Boot</span>,{" "}
+          <span className="text-purple-600 font-semibold">.NET / NestJS</span>, and{" "}
+          <span className="text-pink-600 font-semibold">React / Next.js</span> — currently building AI-powered SaaS products end-to-end.
         </motion.p>
 
         {/* CTAs */}
