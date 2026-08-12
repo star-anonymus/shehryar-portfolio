@@ -15,6 +15,17 @@ const projects = [
     accent: "from-indigo-500 to-purple-500",
   },
   {
+    title: "Quantum Framer — AI Video SaaS",
+    description:
+      "AI-powered video-to-clips SaaS platform built at Quantum Synergy Solutions. Automatically extracts viral short clips from long-form videos. Live product at quantumframer.com.",
+    tags: ["React", "TypeScript", "Node.js", "AI", "SaaS"],
+    github: "https://github.com/quantumsynergysols-web/Quantum-Framers",
+    demo: "https://quantumframer.com",
+    featured: false,
+    category: "Full-Stack",
+    accent: "from-teal-500 to-cyan-400",
+  },
+  {
     title: "Vytal Health — AI Healthcare SaaS",
     description:
       "AI-powered healthcare SaaS platform with a full product dashboard and real AI chatbot integration. Built as a multi-page app with React, TypeScript, Vite, and Tailwind CSS v4.",

@@ -40,6 +40,7 @@ export default function About() {
               {[
                 { icon: MapPin, text: "Rawalpindi, Pakistan" },
                 { icon: GraduationCap, text: "BS Software Engineering — Riphah International University" },
+                { icon: Briefcase, text: "Software Engineer @ Quantum Synergy Solutions · Contract" },
                 { icon: Briefcase, text: "QA Developer @ Authox · Full-time · Hybrid" },
               ].map(({ icon: Icon, text }) => (
                 <div key={text} className="flex items-start gap-3 text-slate-500 pt-2">

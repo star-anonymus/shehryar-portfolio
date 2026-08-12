@@ -2,11 +2,28 @@ import AnimatedSection from "./AnimatedSection";
 
 const experiences = [
   {
+    role: "Software Engineer",
+    company: "Quantum Synergy Solutions",
+    period: "Jul 2026 – Present",
+    type: "Contract · Hybrid",
+    location: "Rawalpindi, Punjab, Pakistan",
+    color: "teal",
+    current: true,
+    description: "Contributing to the design, development, and maintenance of software applications, APIs, and databases that support core business operations. Involved in system architecture and technical documentation to ensure scalable and maintainable solutions.",
+    highlights: [
+      "Building Quantum Framer — AI video-to-clips SaaS platform (live at quantumframer.com)",
+      "System architecture design for scalable, maintainable software solutions",
+      "Cross-functional collaboration to deliver projects on time and to company coding standards",
+      "Applied Generative AI for web application development workflows",
+      "Maintaining strict confidentiality and security across client data and proprietary systems",
+    ],
+  },
+  {
     role: "Quality Assurance Developer",
     company: "Authox",
     period: "June 2025 – Present",
     type: "Full-time · Hybrid",
-    location: "Islamabad, Pakistan",
+    location: "Rawalpindi, Pakistan",
     color: "indigo",
     current: true,
     description: "Design, develop, and test software applications using ASP.NET MVC & .NET Framework. Collaborate with cross-functional teams in the full SDLC.",
@@ -38,6 +55,7 @@ const experiences = [
 ];
 
 const colorMap = {
+  teal:   { dot: "bg-teal-500",   ring: "border-teal-200",   badge: "bg-teal-50 text-teal-700 border-teal-200",     bullet: "bg-teal-400",   card: "hover:border-teal-200 hover:shadow-teal-100/60" },
   indigo: { dot: "bg-indigo-500", ring: "border-indigo-200", badge: "bg-indigo-50 text-indigo-700 border-indigo-200", bullet: "bg-indigo-400", card: "hover:border-indigo-200 hover:shadow-indigo-100/60" },
   purple: { dot: "bg-purple-500", ring: "border-purple-200", badge: "bg-purple-50 text-purple-700 border-purple-200", bullet: "bg-purple-400", card: "hover:border-purple-200 hover:shadow-purple-100/60" },
 };
