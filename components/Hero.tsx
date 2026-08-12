@@ -19,13 +19,6 @@ export default function Hero() {
         style={{ backgroundImage: "radial-gradient(circle, #cbd5e1 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
 
       <div className="relative z-10 max-w-4xl mx-auto text-center">
-        {/* Available badge */}
-        <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-indigo-200 bg-indigo-50 text-indigo-700 text-sm font-medium mb-8 shadow-sm">
-          <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-          Available for opportunities
-        </motion.div>
-
         {/* Name */}
         <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
           className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-4 leading-tight text-slate-900">
@@ -35,11 +28,18 @@ export default function Hero() {
 
         {/* Typing */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xl sm:text-2xl font-semibold text-slate-500 mb-6 h-9">
+          className="text-xl sm:text-2xl font-semibold text-slate-500 mb-5 h-9">
           <TypeAnimation
             sequence={["Full-Stack Developer", 2000, "Java & Spring Boot Engineer", 2000, ".NET & NestJS Developer", 2000, "Flutter & React Developer", 2000, "AI SaaS Builder", 2000]}
             wrapper="span" speed={50} deletionSpeed={70} repeat={Infinity}
           />
+        </motion.div>
+
+        {/* Available badge — below title so it reads as hero content, not nav */}
+        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.25 }}
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-green-200 bg-green-50 text-green-700 text-sm font-medium mb-6 shadow-sm">
+          <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+          Available for opportunities
         </motion.div>
 
         {/* Description */}
