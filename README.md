@@ -2,11 +2,7 @@
 
 Personal portfolio for Shehryar Ahmed — Next.js 16 (App Router), Tailwind CSS v4, Framer Motion.
 
-Three things live here:
-
-1. **The portfolio** — an "Aurora Noir" dark site with scroll-linked motion, spotlight cards, magnetic buttons and a cursor glow. Every decorative animation is disabled under `prefers-reduced-motion`.
-2. **Shareable project pages** — each project gets `/projects/<slug>` with its own generated Open Graph card, so a LinkedIn share renders a real preview instead of a bare link.
-3. **The Content Studio** (`/studio`) — an agent that reads recent public GitHub activity, searches what the developer world is discussing, and drafts LinkedIn posts grounded in work that actually happened, each with a downloadable branded image card.
+Fully static: every route is prerendered at build time, so there is no server runtime and nothing to configure to deploy it.
 
 ## Running it
 
@@ -17,76 +13,56 @@ npm run dev
 
 Open http://localhost:3000.
 
-## Environment
+## What's in it
 
-Copy `.env.example` to `.env.local` and fill it in:
+**"Aurora Noir" design system.** Dark theme built on Tailwind v4 theme tokens in `app/globals.css`: aurora accents, glass surfaces, an animated conic border, film grain. Colours, fonts and easing curves all live there rather than being scattered through components.
 
-| Variable | Needed for | Notes |
-| --- | --- | --- |
-| `ANTHROPIC_API_KEY` | Content Studio | From https://console.anthropic.com |
-| `STUDIO_TOKEN` | Content Studio | Any long random string. Gates `/api/studio/generate`; if unset, that route refuses every request. |
-| `GITHUB_TOKEN` | Optional | Raises the GitHub API rate limit from 60/hr to 5000/hr. Public read scope is enough. |
+**Motion as reusable primitives**, in `components/ui/`:
 
-The portfolio itself needs none of these — without them everything except `/studio` works normally.
+| | |
+| --- | --- |
+| `Reveal` | scroll-triggered blur/translate entrance |
+| `SpotlightCard` | pointer-tracked radial highlight, driven by CSS variables (no re-renders) |
+| `Magnetic` | buttons that lean toward the cursor |
+| `CursorGlow` | aurora glow trailing the pointer, mouse-only |
+| `ScrollProgress` | aurora bar filling as the page scrolls |
+| `WordReveal` / `TypeLine` / `Marquee` / `Counter` | headline, role ticker, tech strip, stat count-up |
+| `PageAtmosphere` / `SectionGlow` | background texture, and per-section ambient light |
+| `ProjectCover` | generated CSS cover art per project, in the project's accent |
 
-## Content Studio
+Every decorative animation is disabled under `prefers-reduced-motion` — globally in `globals.css`, and per-component via `useReducedMotion`.
 
-### How it works
+**Shareable project pages.** Each project gets `/projects/<slug>` with its own `generateMetadata` and its own generated Open Graph card. Sharing one to LinkedIn produces a real preview for *that* project, not a generic site card. This uses LinkedIn's public share intent, which needs no OAuth and no app review — the intent takes only a URL and scrapes the page's OG tags, which is exactly why the per-page image matters.
 
-```
-GitHub public events ─┐
-                      ├─> Claude (web_search) ──> trend brief ─┐
-                      │                                        ├─> Claude (structured output) ──> post drafts
-                      └────────── activity digest ─────────────┘
-                                                                     │
-                                                                     └─> /api/post-image ──> branded PNG
-```
+## Editing your content
 
-- `lib/github.ts` folds the last N days of public events into a digest, filtering out noise commits (`wip`, `typo`, dependency bumps).
-- `lib/agent.ts` runs two Claude calls: one with the `web_search` server tool for trends, one with a Zod-validated structured output for the drafts. The system prompt forbids any claim the activity digest doesn't support.
-- `app/api/post-image/route.tsx` renders the image card from the draft's `visual` fields — square (1200×1200) or wide (1200×627).
+Everything readable lives in three files, and the pages, OG images and sitemap all read from them:
 
-Each generation costs a few cents of Claude API usage. That's why the route is token-gated.
+- `lib/site.ts` — name, role, contact details, social links
+- `lib/projects.ts` — projects and live tools
+- `lib/resume.ts` — experience, skills, certifications, stats, about copy
 
-### Daily automation
+## Deploying
 
-`.github/workflows/daily-posts.yml` runs at 03:00 UTC (08:00 PKT), calls the deployed endpoint, and commits the result to `content/`. Set these on the repository:
+Push to `master`; Vercel builds and deploys from GitHub.
 
-- Secret `STUDIO_TOKEN` — same value as the deployment's
-- Variable `SITE_URL` — e.g. `https://shehryarahmed.dev`
+Two things worth knowing:
 
-You can also trigger it by hand from the Actions tab with a custom window, draft count and steer.
-
-`content/latest-drafts.json` is what `/studio` shows on load; `content/drafts/YYYY-MM-DD.json` keeps the archive.
-
-## LinkedIn sharing
-
-Project pages use LinkedIn's public share intent (`/sharing/share-offsite/?url=…`) — no OAuth, no app review. LinkedIn scrapes the target page's Open Graph tags, which is why every shareable page ships its own `opengraph-image`.
-
-Studio drafts use the composer link (`/feed/?shareActive=true&text=…`), which opens LinkedIn with the post text already in the box. LinkedIn accepts no image through a URL, so the flow is: download the card, then attach it in the composer.
-
-Posting straight to LinkedIn from the site would need a LinkedIn Developer app with the "Share on LinkedIn" product approved and the `w_member_social` scope. Not wired up here.
+- **Deployment Protection.** Vercel turns this on for new projects, which makes every visitor hit a login wall — and stops LinkedIn scraping your OG images, so shares render blank. Settings → Deployment Protection → Vercel Authentication → Disabled.
+- **Site URL.** `NEXT_PUBLIC_SITE_URL` drives `metadataBase`, the sitemap and every share link. On Vercel you can leave it unset — it falls back to the project's production URL. Set it once a custom domain is live.
 
 ## Structure
 
 ```
 app/
-  page.tsx                        home
-  projects/[slug]/                project detail + per-project OG image
-  studio/                         content studio (noindex)
-  api/studio/generate             the agent (token-gated)
-  api/studio/activity             read-only GitHub digest
-  api/post-image                  branded post card PNG
-  opengraph-image.tsx             home OG card
+  page.tsx                 home
+  projects/[slug]/         project detail + per-project OG image
+  opengraph-image.tsx      home OG card
+  icon.tsx                 generated favicon
+  not-found.tsx            404
 components/
-  ui/                             Reveal, SpotlightCard, Magnetic, Aurora,
-                                  CursorGlow, ScrollProgress, Marquee,
-                                  WordReveal, TypeLine, Counter, ShareOnLinkedIn
+  Navbar About Skills Projects Experience Certifications Contact Footer Hero
+  ui/                      the motion and surface primitives listed above
 lib/
-  site.ts  projects.ts  resume.ts  github.ts  agent.ts  linkedin.ts
-content/
-  latest-drafts.json              what /studio shows
-  drafts/YYYY-MM-DD.json          archive
+  site.ts  projects.ts  resume.ts  linkedin.ts  useMediaQuery.ts
 ```
-
-Editing your own content means editing `lib/site.ts`, `lib/projects.ts` and `lib/resume.ts` — the pages, OG images and the agent all read from there.

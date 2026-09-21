@@ -5,7 +5,9 @@ import { ArrowLeft, ExternalLink } from "lucide-react";
 import { FiGithub } from "react-icons/fi";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Aurora from "@/components/ui/Aurora";
+import PageAtmosphere from "@/components/ui/PageAtmosphere";
+import ProjectCover from "@/components/ui/ProjectCover";
+import SectionGlow from "@/components/ui/SectionGlow";
 import CursorGlow from "@/components/ui/CursorGlow";
 import Reveal from "@/components/ui/Reveal";
 import ScrollProgress from "@/components/ui/ScrollProgress";
@@ -56,8 +58,10 @@ export default async function ProjectPage({ params }: Props) {
       <CursorGlow />
       <Navbar />
 
+      <PageAtmosphere />
+
       <main className="relative pt-[calc(var(--nav-h)+2rem)]">
-        <Aurora />
+        <SectionGlow accent={project.accent} position="top" size={38} intensity={0.16} />
 
         <article className="relative z-10 mx-auto max-w-3xl px-6 pb-20 pt-10">
           <Reveal>
@@ -93,6 +97,16 @@ export default async function ProjectPage({ params }: Props) {
             </h1>
 
             <p className="mt-5 text-lg leading-relaxed text-mist/80">{project.summary}</p>
+          </Reveal>
+
+          <Reveal delay={0.08} className="mt-8">
+            <ProjectCover
+              accent={project.accent}
+              monogram={project.monogram}
+              category={project.category}
+              size="lg"
+              className="aspect-[2/1] rounded-2xl border border-white/8"
+            />
           </Reveal>
 
           {/* Actions */}

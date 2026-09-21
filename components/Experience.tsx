@@ -1,4 +1,5 @@
 import Reveal from "./ui/Reveal";
+import SectionGlow from "./ui/SectionGlow";
 import SectionHeading from "./ui/SectionHeading";
 import SpotlightCard from "./ui/SpotlightCard";
 import { experiences } from "@/lib/resume";
@@ -7,6 +8,8 @@ import { accentClasses } from "@/lib/projects";
 export default function Experience() {
   return (
     <section id="experience" className="relative px-6 py-28 sm:py-32">
+      <SectionGlow accent="emerald" position="left" size={30} intensity={0.11} />
+
       <div className="mx-auto max-w-4xl">
         <SectionHeading kicker="Work history" title="Experience" />
 

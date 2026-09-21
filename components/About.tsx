@@ -1,5 +1,6 @@
 import Counter from "./ui/Counter";
 import Reveal from "./ui/Reveal";
+import SectionGlow from "./ui/SectionGlow";
 import SectionHeading from "./ui/SectionHeading";
 import SpotlightCard from "./ui/SpotlightCard";
 import { about, stats } from "@/lib/resume";
@@ -7,6 +8,8 @@ import { about, stats } from "@/lib/resume";
 export default function About() {
   return (
     <section id="about" className="relative px-6 py-28 sm:py-32">
+      <SectionGlow accent="violet" position="left" size={32} intensity={0.13} />
+
       <div className="mx-auto max-w-6xl">
         <SectionHeading kicker="About me" title="Who I am" />
 

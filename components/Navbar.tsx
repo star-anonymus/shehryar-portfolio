@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, Sparkles, X } from "lucide-react";
+import { Download, Menu, X } from "lucide-react";
 import Link from "next/link";
 import Magnetic from "./ui/Magnetic";
+import { site } from "@/lib/site";
 
 const links = [
   { href: "/#about", id: "about", label: "About" },
@@ -99,13 +100,14 @@ export default function Navbar() {
         </ul>
 
         <div className="hidden items-center gap-2 md:flex">
-          <Link
-            href="/studio"
+          <a
+            href={site.resume}
+            download
             className="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium text-fog transition-colors hover:text-mist"
           >
-            <Sparkles size={14} />
-            Studio
-          </Link>
+            <Download size={14} />
+            Résumé
+          </a>
           <Magnetic strength={8}>
             <Link
               href="/#contact"
@@ -152,14 +154,15 @@ export default function Navbar() {
                 </li>
               ))}
               <li>
-                <Link
-                  href="/studio"
+                <a
+                  href={site.resume}
+                  download
                   onClick={() => setOpen(false)}
                   className="flex items-center gap-2 rounded-xl px-4 py-3 text-sm font-medium text-fog transition-colors hover:bg-white/[0.04] hover:text-mist"
                 >
-                  <Sparkles size={14} />
-                  Content Studio
-                </Link>
+                  <Download size={14} />
+                  Download résumé
+                </a>
               </li>
             </ul>
             <Link

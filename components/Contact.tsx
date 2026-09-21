@@ -2,6 +2,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
 import Magnetic from "./ui/Magnetic";
 import Reveal from "./ui/Reveal";
+import SectionGlow from "./ui/SectionGlow";
 import SectionHeading from "./ui/SectionHeading";
 import SpotlightCard from "./ui/SpotlightCard";
 import { site } from "@/lib/site";
@@ -47,13 +48,7 @@ const items = [
 export default function Contact() {
   return (
     <section id="contact" className="relative overflow-hidden px-6 py-28 sm:py-32">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 mx-auto h-[30rem] max-w-3xl rounded-full blur-[150px]"
-        style={{
-          background: "radial-gradient(ellipse, rgba(99,102,241,0.18) 0%, rgba(0,0,0,0) 70%)",
-        }}
-      />
+      <SectionGlow accent="iris" position="bottom" size={36} intensity={0.18} />
 
       <div className="mx-auto max-w-4xl">
         <SectionHeading

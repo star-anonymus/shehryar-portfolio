@@ -1,4 +1,5 @@
 import Reveal from "./ui/Reveal";
+import SectionGlow from "./ui/SectionGlow";
 import SectionHeading from "./ui/SectionHeading";
 import SpotlightCard from "./ui/SpotlightCard";
 import { skillGroups } from "@/lib/resume";
@@ -7,15 +8,7 @@ import { accentClasses } from "@/lib/projects";
 export default function Skills() {
   return (
     <section id="skills" className="relative px-6 py-28 sm:py-32">
-      {/* Section-local glow */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-1/4 -z-10 mx-auto h-[28rem] max-w-4xl rounded-full blur-[140px]"
-        style={{
-          background:
-            "radial-gradient(ellipse, rgba(168,85,247,0.12) 0%, rgba(0,0,0,0) 70%)",
-        }}
-      />
+      <SectionGlow accent="cyan" position="right" size={32} intensity={0.13} />
 
       <div className="mx-auto max-w-6xl">
         <SectionHeading

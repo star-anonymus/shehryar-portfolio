@@ -1,5 +1,6 @@
 import { Award } from "lucide-react";
 import Reveal from "./ui/Reveal";
+import SectionGlow from "./ui/SectionGlow";
 import SectionHeading from "./ui/SectionHeading";
 import SpotlightCard from "./ui/SpotlightCard";
 import { certifications } from "@/lib/resume";
@@ -8,6 +9,8 @@ import { accentClasses } from "@/lib/projects";
 export default function Certifications() {
   return (
     <section className="relative px-6 py-20">
+      <SectionGlow accent="amber" position="right" size={26} intensity={0.09} />
+
       <div className="mx-auto max-w-6xl">
         <SectionHeading kicker="Credentials" title="Certifications" />
 

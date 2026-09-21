@@ -14,6 +14,8 @@ export interface Project {
   demo: string | null;
   featured: boolean;
   category: string;
+  /** Two letters drawn behind the generated cover art. */
+  monogram: string;
   accent: Accent;
   year: string;
 }
@@ -42,6 +44,7 @@ export const projects: Project[] = [
     demo: null,
     featured: true,
     category: "Full-Stack",
+    monogram: "MF",
     accent: "iris",
     year: "2026",
   },
@@ -68,6 +71,7 @@ export const projects: Project[] = [
     demo: null,
     featured: true,
     category: "E-Commerce",
+    monogram: "DA",
     accent: "rose",
     year: "2026",
   },
@@ -87,6 +91,7 @@ export const projects: Project[] = [
     demo: "https://quantumframer.com",
     featured: true,
     category: "AI SaaS",
+    monogram: "QF",
     accent: "cyan",
     year: "2026",
   },
@@ -101,6 +106,7 @@ export const projects: Project[] = [
     demo: "https://vytal-health.vercel.app",
     featured: false,
     category: "AI SaaS",
+    monogram: "VH",
     accent: "emerald",
     year: "2025",
   },
@@ -115,6 +121,7 @@ export const projects: Project[] = [
     demo: null,
     featured: false,
     category: "Backend",
+    monogram: "NJ",
     accent: "violet",
     year: "2025",
   },
@@ -129,6 +136,7 @@ export const projects: Project[] = [
     demo: null,
     featured: false,
     category: "Security",
+    monogram: "OT",
     accent: "rose",
     year: "2025",
   },
@@ -143,6 +151,7 @@ export const projects: Project[] = [
     demo: null,
     featured: false,
     category: "Security",
+    monogram: "QR",
     accent: "violet",
     year: "2025",
   },
@@ -157,6 +166,7 @@ export const projects: Project[] = [
     demo: null,
     featured: false,
     category: "Security",
+    monogram: "MA",
     accent: "iris",
     year: "2025",
   },
@@ -171,6 +181,7 @@ export const projects: Project[] = [
     demo: null,
     featured: false,
     category: "Enterprise",
+    monogram: "AM",
     accent: "amber",
     year: "2025",
   },
@@ -185,6 +196,7 @@ export const projects: Project[] = [
     demo: null,
     featured: false,
     category: "Desktop",
+    monogram: "MM",
     accent: "cyan",
     year: "2024",
   },
@@ -199,6 +211,7 @@ export const projects: Project[] = [
     demo: null,
     featured: false,
     category: "Full-Stack",
+    monogram: "UF",
     accent: "iris",
     year: "2024",
   },
