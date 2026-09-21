@@ -1,71 +1,63 @@
-import { MapPin, GraduationCap, Briefcase } from "lucide-react";
-import AnimatedSection from "./AnimatedSection";
-import AnimatedCounter from "./AnimatedCounter";
-
-const stats = [
-  { label: "Years Experience", value: 3, suffix: "+" },
-  { label: "Projects Built", value: 20, suffix: "+" },
-  { label: "Technologies", value: 25, suffix: "+" },
-  { label: "Certifications", value: 4, suffix: "" },
-];
+import Counter from "./ui/Counter";
+import Reveal from "./ui/Reveal";
+import SectionHeading from "./ui/SectionHeading";
+import SpotlightCard from "./ui/SpotlightCard";
+import { about, stats } from "@/lib/resume";
 
 export default function About() {
   return (
-    <section id="about" className="py-28 px-6 bg-white">
-      <div className="max-w-6xl mx-auto">
-        <AnimatedSection className="text-center mb-16">
-          <p className="text-indigo-600 text-sm font-bold uppercase tracking-widest mb-3">About Me</p>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900">Who I Am</h2>
-        </AnimatedSection>
+    <section id="about" className="relative px-6 py-28 sm:py-32">
+      <div className="mx-auto max-w-6xl">
+        <SectionHeading kicker="About me" title="Who I am" />
 
-        <div className="grid md:grid-cols-2 gap-14 items-center">
-          {/* Left */}
-          <AnimatedSection direction="left" className="space-y-5">
-            <p className="text-slate-600 text-lg leading-relaxed">
-              I&apos;m a <span className="text-slate-900 font-semibold">Backend-focused Full-Stack Developer</span> studying
-              BS Software Engineering at{" "}
-              <span className="text-indigo-600 font-semibold">Riphah International University, Islamabad</span>.
-            </p>
-            <p className="text-slate-600 text-lg leading-relaxed">
-              I design scalable APIs and secure systems with{" "}
-              <span className="text-slate-900 font-semibold">Java / Spring Boot</span>,{" "}
-              <span className="text-slate-900 font-semibold">.NET / C#</span>, and{" "}
-              <span className="text-slate-900 font-semibold">Node.js / NestJS</span>. On the frontend I work with React, Next.js, and Tailwind CSS.
-            </p>
-            <p className="text-slate-600 text-lg leading-relaxed">
-              Currently building AI-powered SaaS products — healthcare, video generation, and automation platforms — while working full-time at Authox.
-            </p>
+        <div className="grid items-start gap-12 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
+          {/* Narrative */}
+          <div>
+            <Reveal direction="left">
+              <p className="font-display text-2xl font-semibold leading-snug text-chalk sm:text-3xl">
+                {about.headline}, studying{" "}
+                <span className="text-aurora">{about.education.split(" — ")[0]}</span> at
+                Riphah International University.
+              </p>
+            </Reveal>
 
-            <div className="flex flex-col gap-3 pt-4 border-t border-slate-100">
-              {[
-                { icon: MapPin, text: "Rawalpindi, Pakistan" },
-                { icon: GraduationCap, text: "BS Software Engineering — Riphah International University" },
-                { icon: Briefcase, text: "Software Engineer @ Quantum Synergy Solutions · Contract" },
-                { icon: Briefcase, text: "QA Developer @ Authox · Full-time · Hybrid" },
-              ].map(({ icon: Icon, text }) => (
-                <div key={text} className="flex items-start gap-3 text-slate-500 pt-2">
-                  <Icon size={16} className="text-indigo-500 shrink-0 mt-0.5" />
-                  <span className="text-sm">{text}</span>
-                </div>
+            <div className="mt-6 space-y-4">
+              {about.paragraphs.map((p, i) => (
+                <Reveal key={i} direction="left" delay={0.08 * (i + 1)} blur={false}>
+                  <p className="leading-relaxed text-mist/80">{p}</p>
+                </Reveal>
               ))}
             </div>
-          </AnimatedSection>
 
-          {/* Right: stat cards */}
-          <AnimatedSection direction="right">
-            <div className="grid grid-cols-2 gap-4">
-              {stats.map((s, i) => (
-                <AnimatedSection key={s.label} delay={i * 0.1}>
-                  <div className="rounded-2xl border border-slate-100 bg-white p-6 text-center card-shadow">
-                    <div className="text-4xl font-extrabold gradient-text mb-2">
-                      <AnimatedCounter value={s.value} suffix={s.suffix} />
-                    </div>
-                    <div className="text-slate-500 text-sm font-medium">{s.label}</div>
+            <Reveal delay={0.35} className="mt-9">
+              <dl className="grid gap-px overflow-hidden rounded-2xl border border-white/8 bg-white/[0.04] sm:grid-cols-2">
+                {about.facts.map((f) => (
+                  <div key={f.label} className="bg-ink-900/60 p-4">
+                    <dt className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-fog">
+                      {f.label}
+                    </dt>
+                    <dd className="mt-1.5 text-sm font-medium leading-snug text-mist">
+                      {f.value}
+                    </dd>
                   </div>
-                </AnimatedSection>
-              ))}
-            </div>
-          </AnimatedSection>
+                ))}
+              </dl>
+            </Reveal>
+          </div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-2 gap-4">
+            {stats.map((s, i) => (
+              <Reveal key={s.label} direction="right" delay={i * 0.09}>
+                <SpotlightCard className="h-full rounded-2xl p-6 text-center">
+                  <div className="text-aurora font-display text-4xl font-bold sm:text-5xl">
+                    <Counter value={s.value} suffix={s.suffix} />
+                  </div>
+                  <div className="mt-2 text-sm font-medium text-fog">{s.label}</div>
+                </SpotlightCard>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>

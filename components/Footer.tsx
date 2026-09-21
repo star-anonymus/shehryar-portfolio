@@ -1,24 +1,41 @@
+import Link from "next/link";
 import { Mail } from "lucide-react";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
+import { site } from "@/lib/site";
+
+const socials = [
+  { href: site.socials.github, icon: FiGithub, label: "GitHub" },
+  { href: site.socials.linkedin, icon: FiLinkedin, label: "LinkedIn" },
+  { href: `mailto:${site.email}`, icon: Mail, label: "Email" },
+];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-100 bg-slate-50 py-10 px-6">
-      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-2">
-          <span className="text-xl font-extrabold gradient-text">SA.</span>
-          <span className="text-slate-400 text-sm">© {new Date().getFullYear()} Shehryar Ahmed. All rights reserved.</span>
+    <footer className="relative border-t border-white/8 px-6 py-10">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-5 sm:flex-row">
+        <div className="flex flex-col items-center gap-1 sm:items-start">
+          <Link href="/" className="font-display text-lg font-bold">
+            <span className="text-aurora">SA</span>
+            <span className="text-indigo-400">.</span>
+          </Link>
+          <p className="text-xs text-fog">
+            © {new Date().getFullYear()} {site.name}. Built with Next.js &amp; Tailwind.
+          </p>
         </div>
+
         <div className="flex items-center gap-5">
-          <a href="https://github.com/star-anonymus" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-900 transition-colors" aria-label="GitHub">
-            <FiGithub size={18} />
-          </a>
-          <a href="https://linkedin.com/in/shehryar-ahmed-93834026b" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-600 transition-colors" aria-label="LinkedIn">
-            <FiLinkedin size={18} />
-          </a>
-          <a href="mailto:ahmedshehryar645@gmail.com" className="text-slate-400 hover:text-indigo-600 transition-colors" aria-label="Email">
-            <Mail size={18} />
-          </a>
+          {socials.map(({ href, icon: Icon, label }) => (
+            <a
+              key={label}
+              href={href}
+              target={href.startsWith("http") ? "_blank" : undefined}
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="text-fog transition-colors duration-200 hover:text-chalk"
+            >
+              <Icon size={17} />
+            </a>
+          ))}
         </div>
       </div>
     </footer>

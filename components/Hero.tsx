@@ -1,94 +1,181 @@
 "use client";
-import { Mail, ArrowDown, Download } from "lucide-react";
+
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { ArrowDown, ArrowUpRight, Download, Mail } from "lucide-react";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
-import { TypeAnimation } from "react-type-animation";
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import Aurora from "./ui/Aurora";
+import Magnetic from "./ui/Magnetic";
+import Marquee from "./ui/Marquee";
+import TypeLine from "./ui/TypeLine";
+import WordReveal from "./ui/WordReveal";
+import { site } from "@/lib/site";
+import { techMarquee } from "@/lib/resume";
+
+const socials = [
+  { href: site.socials.github, icon: FiGithub, label: "GitHub" },
+  { href: site.socials.linkedin, icon: FiLinkedin, label: "LinkedIn" },
+  { href: `mailto:${site.email}`, icon: Mail, label: "Email" },
+];
 
 export default function Hero() {
+  const ref = useRef<HTMLElement>(null);
+  const reduced = useReducedMotion();
+
+  // Content drifts up and fades as you scroll past — the parallax that makes
+  // the aurora behind it feel like a separate plane.
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
+
   return (
-    <section className="relative flex flex-col items-center justify-center px-6 overflow-hidden bg-white"
-      style={{ minHeight: "calc(100vh - 64px)", marginTop: "64px" }}>
-      {/* Soft gradient blobs */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-indigo-100 rounded-full blur-[120px] opacity-60" />
-        <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-purple-100 rounded-full blur-[100px] opacity-50" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-pink-50 rounded-full blur-[140px] opacity-40" />
-      </div>
+    <section
+      ref={ref}
+      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden px-6 pb-16 pt-[var(--nav-h)]"
+    >
+      <Aurora variant="hero" />
 
-      {/* Subtle dot grid */}
-      <div className="absolute inset-0 opacity-[0.4]"
-        style={{ backgroundImage: "radial-gradient(circle, #cbd5e1 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
+      <motion.div
+        style={reduced ? undefined : { y, opacity }}
+        className="relative z-10 mx-auto w-full max-w-4xl text-center"
+      >
+        {/* Availability */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="glass mb-8 inline-flex items-center gap-2.5 rounded-full px-4 py-1.5 text-xs font-medium text-mist"
+        >
+          <span className="pulse-ring h-1.5 w-1.5 rounded-full bg-emerald-400" />
+          Available for opportunities
+          <span className="text-fog">·</span>
+          <span className="font-mono text-fog">{site.location}</span>
+        </motion.div>
 
-      {/* Hero content — vertically centered in the space below navbar */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center py-16">
-        {/* Name */}
-        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-4 leading-tight text-slate-900">
-          Hi, I&apos;m{" "}
-          <span className="gradient-text">Shehryar Ahmed</span>
-        </motion.h1>
+        {/* Headline */}
+        <h1 className="font-display text-[clamp(2.6rem,8vw,5.2rem)] font-bold leading-[1.02] tracking-[-0.03em]">
+          <WordReveal text="Hi, I'm" delay={0.15} />
+          <br />
+          <WordReveal text="Shehryar Ahmed" accentFrom={0} delay={0.3} stagger={0.1} />
+        </h1>
 
-        {/* Typing */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xl sm:text-2xl font-semibold text-slate-500 mb-5 h-9">
-          <TypeAnimation
-            sequence={["Full-Stack Developer", 2000, "Java & Spring Boot Engineer", 2000, ".NET & NestJS Developer", 2000, "Flutter & React Developer", 2000, "AI SaaS Builder", 2000]}
-            wrapper="span" speed={50} deletionSpeed={70} repeat={Infinity}
+        {/* Typing role */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
+          className="mt-5 flex h-8 items-center justify-center font-mono text-base text-mist sm:text-lg"
+        >
+          <span className="mr-2 text-indigo-400">&gt;</span>
+          <TypeLine
+            phrases={[
+              "Full-Stack Developer",
+              "Java & Spring Boot Engineer",
+              ".NET & NestJS Developer",
+              "Flutter & React Developer",
+              "AI SaaS Builder",
+            ]}
           />
         </motion.div>
 
-        {/* Available badge */}
-        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.25 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-green-200 bg-green-50 text-green-700 text-sm font-medium mb-8 shadow-sm">
-          <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-          Available for opportunities
-        </motion.div>
-
-        {/* Description */}
-        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-slate-500 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+        {/* Blurb */}
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.8 }}
+          className="mx-auto mt-7 max-w-2xl text-pretty text-base leading-relaxed text-mist/80 sm:text-lg"
+        >
           Designing scalable APIs and secure systems with{" "}
-          <span className="text-indigo-600 font-semibold">Java / Spring Boot</span>,{" "}
-          <span className="text-purple-600 font-semibold">.NET / NestJS</span>, and{" "}
-          <span className="text-pink-600 font-semibold">React / Next.js</span> — currently building AI-powered SaaS products end-to-end.
+          <span className="font-medium text-indigo-300">Java / Spring Boot</span>,{" "}
+          <span className="font-medium text-violet-300">.NET / NestJS</span>, and{" "}
+          <span className="font-medium text-cyan-300">React / Next.js</span> — currently
+          building AI-powered SaaS products end to end.
         </motion.p>
 
         {/* CTAs */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex flex-wrap items-center justify-center gap-4 mb-14">
-          <a href="#projects"
-            className="px-7 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold transition-all duration-200 shadow-lg shadow-indigo-600/25 hover:-translate-y-0.5">
-            View Projects
-          </a>
-          <a href="/Shehryar_Ahmed_Resume.pdf" download
-            className="flex items-center gap-2 px-7 py-3.5 rounded-xl border-2 border-slate-200 bg-white hover:border-indigo-300 hover:bg-indigo-50 text-slate-700 font-semibold transition-all duration-200 hover:-translate-y-0.5 shadow-sm">
-            <Download size={16} />
-            Download CV
-          </a>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.9 }}
+          className="mt-10 flex flex-wrap items-center justify-center gap-3"
+        >
+          <Magnetic strength={12}>
+            <a
+              href="#work"
+              className="glow-iris group inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-6 py-3.5 font-semibold text-white transition-colors hover:bg-indigo-500"
+            >
+              View my work
+              <ArrowUpRight
+                size={17}
+                className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              />
+            </a>
+          </Magnetic>
+          <Magnetic strength={12}>
+            <a
+              href={site.resume}
+              download
+              className="glass inline-flex items-center gap-2 rounded-xl px-6 py-3.5 font-semibold text-mist transition-colors hover:text-chalk"
+            >
+              <Download size={16} />
+              Download CV
+            </a>
+          </Magnetic>
         </motion.div>
 
         {/* Socials */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.5 }}
-          className="flex items-center justify-center gap-6 mb-8">
-          {[
-            { href: "https://github.com/star-anonymus", icon: <FiGithub size={20} />, label: "GitHub", hoverColor: "hover:text-slate-900" },
-            { href: "https://linkedin.com/in/shehryar-ahmed-93834026b", icon: <FiLinkedin size={20} />, label: "LinkedIn", hoverColor: "hover:text-blue-600" },
-            { href: "mailto:ahmedshehryar645@gmail.com", icon: <Mail size={20} />, label: "Email", hoverColor: "hover:text-indigo-600" },
-          ].map((s, i) => (
-            <a key={i} href={s.href} target={s.href.startsWith("http") ? "_blank" : undefined} rel="noopener noreferrer"
-              className={`flex items-center gap-2 text-slate-400 ${s.hoverColor} transition-all duration-200 hover:-translate-y-0.5 text-sm font-medium`} aria-label={s.label}>
-              {s.icon}
-              <span className="hidden sm:inline">{s.label}</span>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1.05 }}
+          className="mt-9 flex items-center justify-center gap-5"
+        >
+          {socials.map(({ href, icon: Icon, label }) => (
+            <a
+              key={label}
+              href={href}
+              target={href.startsWith("http") ? "_blank" : undefined}
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="group flex items-center gap-2 text-sm font-medium text-fog transition-colors hover:text-chalk"
+            >
+              <Icon size={18} />
+              <span className="hidden sm:inline">{label}</span>
             </a>
           ))}
         </motion.div>
+      </motion.div>
 
-        {/* Scroll cue — inside content flow, not absolute, so it never overlaps */}
-        <motion.a href="#about" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}
-          className="inline-flex flex-col items-center gap-1 text-slate-300 hover:text-slate-500 transition-colors" aria-label="Scroll down">
-          <ArrowDown size={18} className="animate-bounce" />
-        </motion.a>
-      </div>
+      {/* Tech ticker */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 1.2 }}
+        className="relative z-10 mx-auto mt-14 w-full max-w-5xl"
+      >
+        <Marquee items={techMarquee} duration={40} />
+      </motion.div>
+
+      {/* Scroll cue */}
+      <motion.a
+        href="#about"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+        aria-label="Scroll to about"
+        className="relative z-10 mx-auto mt-10 flex flex-col items-center gap-1.5 text-fog transition-colors hover:text-mist"
+      >
+        <span className="font-mono text-[0.65rem] uppercase tracking-[0.2em]">Scroll</span>
+        <motion.span
+          animate={reduced ? undefined : { y: [0, 5, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ArrowDown size={16} />
+        </motion.span>
+      </motion.a>
     </section>
   );
 }
