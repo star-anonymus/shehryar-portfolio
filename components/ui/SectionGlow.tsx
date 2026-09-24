@@ -20,6 +20,12 @@ const positions = {
  * One ambient glow, scoped to the section that renders it. Sections own their
  * own light rather than inheriting it from a page-height layer — that keeps
  * the colour changing as you scroll instead of fading out after the fold.
+ *
+ * The glow is deliberately wider than the viewport and offset past the section
+ * edge, so it ships its own `overflow-hidden` wrapper. Without that it widens
+ * the document on phones, and a wider document stretches every `position:
+ * fixed` element — which is how the navbar's menu button ends up off-screen.
+ * `body { overflow-x: hidden }` hides the scrollbar but does not fix that.
  */
 export default function SectionGlow({
   accent = "iris",
@@ -38,12 +44,16 @@ export default function SectionGlow({
   return (
     <div
       aria-hidden
-      className={`pointer-events-none absolute -z-10 rounded-full blur-[130px] ${positions[position]}`}
-      style={{
-        width: `${size}rem`,
-        height: `${size}rem`,
-        background: `radial-gradient(circle, rgba(${rgb},${intensity}) 0%, rgba(${rgb},0) 70%)`,
-      }}
-    />
+      className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+    >
+      <div
+        className={`absolute rounded-full blur-[130px] ${positions[position]}`}
+        style={{
+          width: `${size}rem`,
+          height: `${size}rem`,
+          background: `radial-gradient(circle, rgba(${rgb},${intensity}) 0%, rgba(${rgb},0) 70%)`,
+        }}
+      />
+    </div>
   );
 }

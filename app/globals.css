@@ -46,11 +46,20 @@ html {
   background: var(--color-ink-950);
 }
 
+/* `clip` rather than `hidden`: it contains stray horizontal overflow without
+   creating a scroll container, so `position: fixed` elements keep sizing to
+   the real viewport. With `hidden` on body alone, an overflowing decorative
+   layer still widens the document and stretches the fixed navbar off-screen
+   on phones. Belt and braces — the layers themselves clip too. */
+html,
+body {
+  overflow-x: clip;
+}
+
 body {
   font-family: var(--font-sans);
   background: var(--color-ink-950);
   color: var(--color-chalk);
-  overflow-x: hidden;
 }
 
 ::selection {

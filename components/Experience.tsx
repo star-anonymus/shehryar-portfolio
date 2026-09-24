@@ -17,7 +17,7 @@ export default function Experience() {
           {/* Timeline spine */}
           <div
             aria-hidden
-            className="absolute left-[19px] top-3 bottom-3 w-px bg-gradient-to-b from-indigo-400/40 via-violet-400/25 to-transparent"
+            className="absolute left-[19px] top-3 bottom-3 hidden w-px bg-gradient-to-b from-indigo-400/40 via-violet-400/25 to-transparent sm:block"
           />
 
           <div className="space-y-6">
@@ -25,9 +25,9 @@ export default function Experience() {
               const a = accentClasses[exp.accent];
               return (
                 <Reveal key={`${exp.company}-${exp.role}`} delay={i * 0.12} direction="left">
-                  <div className="flex gap-5">
+                  <div className="flex gap-0 sm:gap-5">
                     {/* Node */}
-                    <div className="relative z-10 shrink-0 pt-6">
+                    <div className="relative z-10 hidden shrink-0 pt-6 sm:block">
                       <div
                         className={`flex h-10 w-10 items-center justify-center rounded-full border bg-ink-900 ${a.border}`}
                       >
@@ -39,7 +39,7 @@ export default function Experience() {
                       </div>
                     </div>
 
-                    <SpotlightCard className="flex-1 rounded-2xl p-6">
+                    <SpotlightCard className="flex-1 rounded-2xl p-5 sm:p-6">
                       <div className="mb-3 flex flex-wrap items-start justify-between gap-3">
                         <div>
                           <h3 className="font-display text-lg font-bold text-chalk">

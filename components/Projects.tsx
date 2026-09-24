@@ -140,21 +140,21 @@ export default function Projects() {
 
                 <div className="flex h-full flex-col p-5">
                   <div className="mb-2 flex items-start justify-between gap-3">
-                    <Link href={`/projects/${p.slug}`} className="group/title min-w-0">
+                    <Link href={`/projects/${p.slug}`} className="group/title -my-1 min-w-0 py-1">
                       <h4 className="font-display text-base font-semibold leading-snug text-chalk transition-colors group-hover/title:text-indigo-200">
                         {p.title}
                       </h4>
                     </Link>
-                    <div className="flex shrink-0 gap-2 pt-0.5 text-fog">
+                    <div className="-mr-2 -mt-1 flex shrink-0 text-fog">
                       {p.github && (
                         <a
                           href={p.github}
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={`${p.title} source on GitHub`}
-                          className="transition-colors hover:text-chalk"
+                          className="flex h-10 w-10 items-center justify-center rounded-lg transition-colors hover:text-chalk"
                         >
-                          <FiGithub size={15} />
+                          <FiGithub size={16} />
                         </a>
                       )}
                       {p.demo && (
@@ -163,9 +163,9 @@ export default function Projects() {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={`${p.title} live site`}
-                          className="transition-colors hover:text-indigo-300"
+                          className="flex h-10 w-10 items-center justify-center rounded-lg transition-colors hover:text-indigo-300"
                         >
-                          <ExternalLink size={15} />
+                          <ExternalLink size={16} />
                         </a>
                       )}
                     </div>
@@ -248,7 +248,7 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${tool.title} source`}
-                      className="flex items-center justify-center rounded-lg border border-white/8 bg-white/[0.04] px-3 py-2 text-xs font-semibold text-fog transition-colors hover:text-chalk"
+                      className="flex h-10 w-11 items-center justify-center rounded-lg border border-white/8 bg-white/[0.04] text-xs font-semibold text-fog transition-colors hover:text-chalk"
                     >
                       <FiGithub size={13} />
                     </a>

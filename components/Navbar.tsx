@@ -71,7 +71,7 @@ export default function Navbar() {
       >
         <Link
           href="/"
-          className="font-display text-lg font-bold tracking-tight text-chalk transition-opacity hover:opacity-80"
+          className="-ml-2 flex h-11 items-center rounded-xl px-2 font-display text-lg font-bold tracking-tight text-chalk transition-opacity hover:opacity-80"
         >
           <span className="text-aurora">SA</span>
           <span className="text-indigo-400">.</span>

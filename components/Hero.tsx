@@ -34,7 +34,7 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden px-6 pb-16 pt-[var(--nav-h)]"
+      className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden px-5 pb-10 pt-[var(--nav-h)] sm:px-6 sm:pb-16"
     >
       <Aurora variant="hero" />
 
@@ -47,16 +47,16 @@ export default function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="glass mb-8 inline-flex items-center gap-2.5 rounded-full px-4 py-1.5 text-xs font-medium text-mist"
+          className="glass mb-6 inline-flex max-w-full items-center gap-2.5 rounded-full px-4 py-1.5 text-xs font-medium text-mist sm:mb-8"
         >
           <span className="pulse-ring h-1.5 w-1.5 rounded-full bg-emerald-400" />
           Available for opportunities
-          <span className="text-fog">·</span>
-          <span className="font-mono text-fog">{site.location}</span>
+          <span className="hidden text-fog sm:inline">·</span>
+          <span className="hidden font-mono text-fog sm:inline">{site.location}</span>
         </motion.div>
 
         {/* Headline */}
-        <h1 className="font-display text-[clamp(2.6rem,8vw,5.2rem)] font-bold leading-[1.02] tracking-[-0.03em]">
+        <h1 className="font-display text-[clamp(2.15rem,9vw,5.2rem)] font-bold leading-[1.05] tracking-[-0.03em]">
           <WordReveal text="Hi, I'm" delay={0.15} />
           <br />
           <WordReveal text="Shehryar Ahmed" accentFrom={0} delay={0.3} stagger={0.1} />
@@ -67,7 +67,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.7 }}
-          className="mt-5 flex h-8 items-center justify-center font-mono text-base text-mist sm:text-lg"
+          className="mt-4 flex h-8 items-center justify-center font-mono text-sm text-mist sm:mt-5 sm:text-lg"
         >
           <span className="mr-2 text-indigo-400">&gt;</span>
           <TypeLine
@@ -86,7 +86,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.8 }}
-          className="mx-auto mt-7 max-w-2xl text-pretty text-base leading-relaxed text-mist/80 sm:text-lg"
+          className="mx-auto mt-5 max-w-2xl text-pretty text-[0.95rem] leading-relaxed text-mist/80 sm:mt-7 sm:text-lg"
         >
           Designing scalable APIs and secure systems with{" "}
           <span className="font-medium text-indigo-300">Java / Spring Boot</span>,{" "}
@@ -100,12 +100,12 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.9 }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-3"
+          className="mt-8 flex flex-col items-stretch gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center"
         >
-          <Magnetic strength={12}>
+          <Magnetic strength={12} className="w-full sm:w-auto">
             <a
               href="#work"
-              className="glow-iris group inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-6 py-3.5 font-semibold text-white transition-colors hover:bg-indigo-500"
+              className="glow-iris group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 px-6 py-3.5 font-semibold text-white transition-colors hover:bg-indigo-500 sm:w-auto"
             >
               View my work
               <ArrowUpRight
@@ -114,11 +114,11 @@ export default function Hero() {
               />
             </a>
           </Magnetic>
-          <Magnetic strength={12}>
+          <Magnetic strength={12} className="w-full sm:w-auto">
             <a
               href={site.resume}
               download
-              className="glass inline-flex items-center gap-2 rounded-xl px-6 py-3.5 font-semibold text-mist transition-colors hover:text-chalk"
+              className="glass inline-flex w-full items-center justify-center gap-2 rounded-xl px-6 py-3.5 font-semibold text-mist transition-colors hover:text-chalk sm:w-auto"
             >
               <Download size={16} />
               Download CV
@@ -131,7 +131,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.05 }}
-          className="mt-9 flex items-center justify-center gap-5"
+          className="mt-7 flex items-center justify-center gap-6 sm:mt-9 sm:gap-5"
         >
           {socials.map(({ href, icon: Icon, label }) => (
             <a
@@ -140,7 +140,7 @@ export default function Hero() {
               target={href.startsWith("http") ? "_blank" : undefined}
               rel="noopener noreferrer"
               aria-label={label}
-              className="group flex items-center gap-2 text-sm font-medium text-fog transition-colors hover:text-chalk"
+              className="group flex h-11 w-11 items-center justify-center rounded-xl text-sm font-medium text-fog transition-colors hover:text-chalk sm:h-auto sm:w-auto sm:gap-2"
             >
               <Icon size={18} />
               <span className="hidden sm:inline">{label}</span>
@@ -154,7 +154,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.2 }}
-        className="relative z-10 mx-auto mt-14 w-full max-w-5xl"
+        className="relative z-10 mx-auto mt-10 w-full max-w-5xl sm:mt-14"
       >
         <Marquee items={techMarquee} duration={40} />
       </motion.div>
@@ -166,7 +166,7 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
         aria-label="Scroll to about"
-        className="relative z-10 mx-auto mt-10 flex flex-col items-center gap-1.5 text-fog transition-colors hover:text-mist"
+        className="relative z-10 mx-auto mt-7 flex flex-col items-center gap-1.5 text-fog transition-colors hover:text-mist sm:mt-10"
       >
         <span className="font-mono text-[0.65rem] uppercase tracking-[0.2em]">Scroll</span>
         <motion.span
