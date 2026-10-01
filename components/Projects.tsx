@@ -22,6 +22,7 @@ export default function Projects() {
 
       <div className="mx-auto max-w-6xl">
         <SectionHeading
+          index="03"
           kicker="Selected work"
           title="Things I've built"
           description="Personal projects, university work, and production systems shipped at companies. Every card opens a page you can share straight to LinkedIn."
@@ -32,17 +33,29 @@ export default function Projects() {
           {featured.map((p, i) => (
               <Reveal key={p.slug} delay={i * 0.08}>
                 <SpotlightCard className="group overflow-hidden rounded-3xl">
-                  <div className="grid lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
-                    <ProjectCover
-                      accent={p.accent}
-                      monogram={p.monogram}
-                      category={p.category}
-                      size="lg"
-                      className="aspect-[16/10] lg:aspect-auto lg:h-full lg:min-h-[19rem]"
-                    />
+                  <div
+                    className={`grid ${
+                      i % 2
+                        ? "lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]"
+                        : "lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]"
+                    }`}
+                  >
+                    <div className={`overflow-hidden ${i % 2 ? "lg:order-2" : ""}`}>
+                      <ProjectCover
+                        accent={p.accent}
+                        monogram={p.monogram}
+                        category={p.category}
+                        size="lg"
+                        className="aspect-[16/10] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04] lg:aspect-auto lg:h-full lg:min-h-[19rem]"
+                      />
+                    </div>
 
                     <div className="p-7 sm:p-9">
                       <div className="mb-3 flex flex-wrap items-center gap-2.5">
+                        <span className="font-display text-sm font-bold text-indigo-300">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <span className="h-px w-6 bg-white/15" />
                         <span className="font-mono text-[0.68rem] tracking-widest text-fog">
                           {p.year}
                         </span>

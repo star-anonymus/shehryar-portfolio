@@ -9,6 +9,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CursorGlow from "@/components/ui/CursorGlow";
 import PageAtmosphere from "@/components/ui/PageAtmosphere";
+import Preloader from "@/components/ui/Preloader";
 import ScrollProgress from "@/components/ui/ScrollProgress";
 
 export default function Home() {
@@ -21,17 +22,19 @@ export default function Home() {
         Skip to content
       </a>
 
+      <Preloader />
       <ScrollProgress />
       <CursorGlow />
       <PageAtmosphere />
       <Navbar />
 
+      {/* Order follows how a hiring manager reads: who, where they've worked, what they've built, then the toolbox */}
       <main>
         <Hero />
         <About />
-        <Skills />
-        <Projects />
         <Experience />
+        <Projects />
+        <Skills />
         <Certifications />
         <Contact />
       </main>

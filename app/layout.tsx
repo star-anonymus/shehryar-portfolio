@@ -68,10 +68,24 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
+    // The inline script below may add `intro-skip` before React hydrates.
     <html
       lang="en"
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrains.variable}`}
+      suppressHydrationWarning
     >
+      <head>
+        {/* Skip the intro loader for returning visitors and reduced motion — before first paint */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(sessionStorage.getItem('sa-intro')||matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('intro-skip')}catch(e){document.documentElement.classList.add('intro-skip')}",
+          }}
+        />
+        <noscript>
+          <style>{".preloader{display:none}"}</style>
+        </noscript>
+      </head>
       <body className="bg-ink-950 text-chalk antialiased">{children}</body>
     </html>
   );

@@ -3,15 +3,16 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Download, Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import Magnetic from "./ui/Magnetic";
 import { site } from "@/lib/site";
 
 const links = [
   { href: "/#about", id: "about", label: "About" },
-  { href: "/#skills", id: "skills", label: "Skills" },
-  { href: "/#work", id: "work", label: "Work" },
   { href: "/#experience", id: "experience", label: "Experience" },
+  { href: "/#work", id: "work", label: "Work" },
+  { href: "/#skills", id: "skills", label: "Skills" },
   { href: "/#contact", id: "contact", label: "Contact" },
 ];
 
@@ -35,14 +36,16 @@ export default function Navbar() {
       .filter((el): el is HTMLElement => el !== null);
     if (sections.length === 0) return;
 
+    // The root margin leaves a thin band 25–40% down the viewport; whichever
+    // section crosses it is active. Threshold 0, not a ratio: a section taller
+    // than the screen can never show 10% of itself inside a band that thin,
+    // so a ratio threshold left the pill stuck on the first section.
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActive(visible.target.id);
+        const hit = entries.find((e) => e.isIntersecting);
+        if (hit) setActive(hit.target.id);
       },
-      { rootMargin: "-25% 0px -60% 0px", threshold: [0.1, 0.4, 0.8] },
+      { rootMargin: "-25% 0px -60% 0px", threshold: 0 },
     );
 
     sections.forEach((s) => observer.observe(s));
@@ -71,10 +74,15 @@ export default function Navbar() {
       >
         <Link
           href="/"
-          className="-ml-2 flex h-11 items-center rounded-xl px-2 font-display text-lg font-bold tracking-tight text-chalk transition-opacity hover:opacity-80"
+          aria-label="Shehryar Ahmed — home"
+          className="group -ml-2 flex h-11 items-center gap-2.5 rounded-xl px-2 transition-opacity hover:opacity-90"
         >
-          <span className="text-aurora">SA</span>
-          <span className="text-indigo-400">.</span>
+          <span className="relative h-8 w-8 overflow-hidden rounded-full ring-1 ring-white/15 transition-transform duration-300 group-hover:scale-105">
+            <Image src="/shehryar-square.jpg" alt="" fill sizes="32px" className="object-cover" />
+          </span>
+          <span className="font-display text-[0.95rem] font-bold tracking-tight text-chalk">
+            Shehryar<span className="text-indigo-400">.</span>
+          </span>
         </Link>
 
         <ul className="hidden items-center gap-1 md:flex">
@@ -108,7 +116,7 @@ export default function Navbar() {
             <Download size={14} />
             Résumé
           </a>
-          <Magnetic strength={8}>
+          <Magnetic strength={6}>
             <Link
               href="/#contact"
               className="glow-iris inline-flex items-center rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-500"

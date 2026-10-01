@@ -328,6 +328,46 @@ body {
 }
 
 /* ──────────────────────────────────────────────────────────────
+   Portrait frame — a slow conic border that never stops turning
+   ────────────────────────────────────────────────────────────── */
+.portrait-ring {
+  background: conic-gradient(
+    from var(--angle),
+    rgba(255, 255, 255, 0.06) 0%,
+    var(--color-iris-500) 14%,
+    var(--color-violet-glow) 28%,
+    var(--color-cyan-glow) 42%,
+    rgba(255, 255, 255, 0.06) 58%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  animation: spin-angle 7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spin-slow {
+  animation: spin 22s linear infinite;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Intro loader — skipped for returning visitors by an inline script
+   in <head> that sets .intro-skip before first paint
+   ────────────────────────────────────────────────────────────── */
+.preloader {
+  clip-path: inset(0% 0% 0% 0%);
+  transition: clip-path 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.preloader.is-leaving {
+  clip-path: inset(0% 0% 100% 0%);
+}
+.intro-skip .preloader {
+  display: none;
+}
+
+/* ──────────────────────────────────────────────────────────────
    Reduced motion — kill every decorative animation
    ────────────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
