@@ -94,7 +94,7 @@ export const skillGroups: SkillGroup[] = [
   {
     category: "Mobile",
     accent: "rose",
-    skills: ["Flutter", "Dart"],
+    skills: ["Flutter", "Dart", "Riverpod"],
   },
   {
     category: "Databases",
@@ -104,7 +104,18 @@ export const skillGroups: SkillGroup[] = [
   {
     category: "Tools & Practice",
     accent: "amber",
-    skills: ["Git", "GitHub", "JIRA", "REST APIs", "Socket.io", "Vercel"],
+    skills: [
+      "Git",
+      "GitHub",
+      "JIRA",
+      "REST APIs",
+      "Socket.io",
+      "WebRTC",
+      "Stripe",
+      "Gemini AI",
+      "RunPod",
+      "Vercel",
+    ],
   },
 ];
 

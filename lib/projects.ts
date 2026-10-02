@@ -98,9 +98,10 @@ export const projects: Project[] = [
       "AI-powered video-to-clips SaaS platform built at Quantum Synergy Solutions. It automatically extracts viral short clips from long-form videos, scores them, and renders them for vertical platforms.",
     highlights: [
       "Automated long-form to short-form clip extraction",
+      "GPU inference runs on RunPod",
       "Shipped as a live commercial product at quantumframer.com",
     ],
-    tags: ["React", "TypeScript", "Node.js", "AI", "SaaS"],
+    tags: ["React", "TypeScript", "Node.js", "RunPod", "AI", "SaaS"],
     github: "https://github.com/quantumsynergysols-web/Quantum-Framers",
     demo: "https://quantumframer.com",
     featured: true,
