@@ -3,7 +3,7 @@
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, ArrowUpRight, Download, Mail } from "lucide-react";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Aurora from "./ui/Aurora";
 import Magnetic from "./ui/Magnetic";
 import Marquee from "./ui/Marquee";
@@ -41,10 +41,22 @@ export default function Hero() {
   const portraitY = useTransform(scrollYProgress, [0, 1], ["0%", "8%"]);
   const fade = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
+  // Pause every looping animation in here once the hero leaves the screen
+  // (see .is-offscreen in globals.css).
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([entry]) => {
+      el.classList.toggle("is-offscreen", !entry.isIntersecting);
+    });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   // One entrance clock for the whole column, gated on the intro loader.
   const item = (delay: number, y = 18) => ({
-    initial: reduced ? false : { opacity: 0, y, filter: "blur(8px)" },
-    animate: play ? { opacity: 1, y: 0, filter: "blur(0px)" } : undefined,
+    initial: reduced ? false : { opacity: 0, y },
+    animate: play ? { opacity: 1, y: 0 } : undefined,
     transition: { duration: 0.9, delay, ease: EASE },
   });
 
@@ -70,7 +82,7 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-14 lg:grid-cols-[minmax(0,1.12fr)_minmax(0,0.88fr)] lg:gap-10">
         {/* ── Copy ── */}
-        <motion.div style={reduced ? undefined : { y: copyY, opacity: fade }} className="order-2 lg:order-1">
+        <motion.div style={reduced ? undefined : { y: copyY, opacity: fade }} className="order-2 will-change-transform lg:order-1">
           <motion.div
             {...item(0.05, 12)}
             className="glass mb-7 inline-flex max-w-full items-center gap-2.5 rounded-full px-4 py-1.5 text-xs font-medium text-mist"
@@ -176,7 +188,7 @@ export default function Hero() {
         </motion.div>
 
         {/* ── Portrait ── */}
-        <motion.div style={reduced ? undefined : { y: portraitY }} className="order-1 px-6 sm:px-10 lg:order-2 lg:px-0">
+        <motion.div style={reduced ? undefined : { y: portraitY }} className="order-1 px-6 will-change-transform sm:px-10 lg:order-2 lg:px-0">
           <Portrait />
         </motion.div>
       </div>

@@ -8,7 +8,7 @@
  */
 export default function PageAtmosphere() {
   return (
-    <div aria-hidden className="pointer-events-none fixed inset-0 -z-10">
+    <div aria-hidden className="glow-layer pointer-events-none fixed inset-0 -z-10">
       {/* Base wash so the near-black never reads as dead flat */}
       <div
         className="absolute inset-0"

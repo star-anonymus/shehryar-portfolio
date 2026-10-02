@@ -13,7 +13,7 @@ interface RevealProps {
   direction?: Direction;
   /** Distance travelled in px. */
   distance?: number;
-  /** Blur-in adds the expensive-looking softness; turn it off in dense grids. */
+  /** Blur-in animates a filter, which repaints every frame — opt in only for a few hero-level elements. */
   blur?: boolean;
   once?: boolean;
   as?: "div" | "section" | "li" | "article" | "header";
@@ -34,7 +34,7 @@ export default function Reveal({
   duration = 0.7,
   direction = "up",
   distance = 28,
-  blur = true,
+  blur = false,
   once = true,
   as = "div",
 }: RevealProps) {
@@ -53,21 +53,17 @@ export default function Reveal({
     );
   }
 
+  // Without blur, leave `filter` out entirely — even "blur(0px)" keeps the
+  // element on the filter path.
+  const hidden = { opacity: 0, x: o.x * distance, y: o.y * distance, ...(blur && { filter: "blur(10px)" }) };
+  const shown = { opacity: 1, x: 0, y: 0, ...(blur && { filter: "blur(0px)" }) };
+
   return (
     <MotionTag
       ref={ref}
       className={className}
-      initial={{
-        opacity: 0,
-        x: o.x * distance,
-        y: o.y * distance,
-        filter: blur ? "blur(10px)" : "blur(0px)",
-      }}
-      animate={
-        inView
-          ? { opacity: 1, x: 0, y: 0, filter: "blur(0px)" }
-          : { opacity: 0, x: o.x * distance, y: o.y * distance, filter: blur ? "blur(10px)" : "blur(0px)" }
-      }
+      initial={hidden}
+      animate={inView ? shown : hidden}
       transition={{ duration, delay, ease: [0.16, 1, 0.3, 1] }}
     >
       {children}

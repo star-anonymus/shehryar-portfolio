@@ -44,10 +44,10 @@ export default function SectionGlow({
   return (
     <div
       aria-hidden
-      className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+      className="glow-layer pointer-events-none absolute inset-0 -z-10 overflow-hidden"
     >
       <div
-        className={`absolute rounded-full blur-[130px] ${positions[position]}`}
+        className={`absolute rounded-full ${positions[position]}`}
         style={{
           width: `${size}rem`,
           height: `${size}rem`,

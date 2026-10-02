@@ -86,7 +86,7 @@ export default function Portrait() {
 
             {/* Grade: cool the warm office light toward the site palette, fade the suit into the page */}
             <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink-950/90 via-ink-950/10 to-indigo-500/10" />
-            <div aria-hidden className="absolute inset-0 mix-blend-soft-light bg-indigo-900/30" />
+            <div aria-hidden className="absolute inset-0 bg-indigo-950/15" />
 
             <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-5">
               <div>
@@ -129,10 +129,9 @@ export default function Portrait() {
 
       {/* Floating chips */}
       <motion.div {...chip(1.0)} className="absolute -right-4 top-10 sm:-right-8 lg:-right-6">
-        <motion.div
-          animate={reduced ? undefined : { y: [0, -8, 0] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="glass-strong flex items-center gap-3 rounded-2xl px-3.5 py-2.5 shadow-xl"
+        <div
+          style={{ "--float": "-8px", "--float-dur": "5s" } as React.CSSProperties}
+          className="float-y flex items-center gap-3 rounded-2xl border border-white/10 bg-ink-900/95 px-3.5 py-2.5 shadow-xl will-change-transform"
         >
           <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-cyan-500/15 text-cyan-300">
             <Briefcase size={16} />
@@ -141,14 +140,13 @@ export default function Portrait() {
             <span className="block text-[0.7rem] text-fog">Software Engineer</span>
             <span className="block text-sm font-semibold text-chalk">Quantum Synergy</span>
           </span>
-        </motion.div>
+        </div>
       </motion.div>
 
       <motion.div {...chip(1.15)} className="absolute -left-5 bottom-24 sm:-left-12 lg:-left-10">
-        <motion.div
-          animate={reduced ? undefined : { y: [0, 8, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="glass-strong flex items-center gap-3 rounded-2xl px-3.5 py-2.5 shadow-xl"
+        <div
+          style={{ "--float": "8px", "--float-dur": "6s" } as React.CSSProperties}
+          className="float-y flex items-center gap-3 rounded-2xl border border-white/10 bg-ink-900/95 px-3.5 py-2.5 shadow-xl will-change-transform"
         >
           <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-500/15 text-indigo-300">
             <Code2 size={16} />
@@ -157,18 +155,17 @@ export default function Portrait() {
             <span className="block text-[0.7rem] text-fog">Backend-first</span>
             <span className="block font-mono text-[0.78rem] font-medium text-chalk">NestJS · Spring · .NET</span>
           </span>
-        </motion.div>
+        </div>
       </motion.div>
 
       <motion.div {...chip(1.3)} className="absolute -bottom-5 right-3 sm:-right-6">
-        <motion.div
-          animate={reduced ? undefined : { y: [0, -6, 0] }}
-          transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-          className="glass-strong flex items-center gap-2.5 rounded-full px-4 py-2 shadow-xl"
+        <div
+          style={{ "--float": "-6px", "--float-dur": "4.5s" } as React.CSSProperties}
+          className="float-y flex items-center gap-2.5 rounded-full border border-white/10 bg-ink-900/95 px-4 py-2 shadow-xl will-change-transform"
         >
           <span className="h-2 w-2 rounded-full bg-emerald-400 pulse-ring" aria-hidden />
           <span className="text-xs font-semibold text-chalk">Open to remote roles</span>
-        </motion.div>
+        </div>
       </motion.div>
     </div>
   );
