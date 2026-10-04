@@ -1,8 +1,8 @@
 import type { Accent } from "@/lib/projects";
 
 const glowHex: Record<Accent, string> = {
-  iris: "99,102,241",
-  violet: "168,85,247",
+  iris: "63,216,240",
+  violet: "182,242,58",
   cyan: "34,211,238",
   rose: "244,114,182",
   amber: "251,191,36",

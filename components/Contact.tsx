@@ -19,16 +19,17 @@ export default function Contact() {
       <SectionGlow accent="iris" position="bottom" size={40} intensity={0.2} />
 
       <div className="mx-auto max-w-6xl">
-        <Reveal className="mb-10 flex items-center gap-3">
-          <span className="kicker">06 — Get in touch</span>
-          <span className="h-px flex-1 bg-gradient-to-r from-indigo-400/40 to-transparent" />
+        <Reveal className="mb-10 flex items-end gap-4">
+          <span aria-hidden className="text-outline font-display text-[clamp(3.2rem,7vw,5.2rem)] font-bold leading-[0.8] tracking-[-0.04em]">07</span>
+          <span className="kicker pb-1.5">Get in touch</span>
+          <span className="mb-3 h-px flex-1 bg-gradient-to-r from-iris-400/45 to-transparent" />
         </Reveal>
 
         <div className="glass glass-sheen relative overflow-hidden rounded-[2rem] p-6 sm:p-12 lg:p-16">
           <div
             aria-hidden
             className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full blur-3xl"
-            style={{ background: "radial-gradient(circle, rgba(99,102,241,0.35), transparent 70%)" }}
+            style={{ background: "radial-gradient(circle, rgba(63,216,240,0.35), transparent 70%)" }}
           />
 
           <div className="relative grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:items-end">

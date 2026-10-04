@@ -9,6 +9,7 @@ import Magnetic from "./ui/Magnetic";
 import { site } from "@/lib/site";
 
 const links = [
+  { href: "/#lead-generator", id: "lead-generator", label: "Product" },
   { href: "/#about", id: "about", label: "About" },
   { href: "/#experience", id: "experience", label: "Experience" },
   { href: "/#work", id: "work", label: "Work" },
@@ -81,7 +82,7 @@ export default function Navbar() {
             <Image src="/shehryar-square.jpg" alt="" fill sizes="32px" className="object-cover" />
           </span>
           <span className="font-display text-[0.95rem] font-bold tracking-tight text-chalk">
-            Shehryar<span className="text-indigo-400">.</span>
+            Shehryar<span className="text-iris-400">.</span>
           </span>
         </Link>
 
@@ -119,7 +120,7 @@ export default function Navbar() {
           <Magnetic strength={6}>
             <Link
               href="/#contact"
-              className="glow-iris inline-flex items-center rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-indigo-500"
+              className="btn-signal inline-flex items-center rounded-xl px-4 py-2 text-sm font-semibold"
             >
               Hire me
             </Link>
@@ -176,7 +177,7 @@ export default function Navbar() {
             <Link
               href="/#contact"
               onClick={() => setOpen(false)}
-              className="mt-2 block rounded-xl bg-indigo-600 px-4 py-3 text-center text-sm font-semibold text-white"
+              className="btn-signal mt-2 block rounded-xl px-4 py-3 text-center text-sm font-semibold"
             >
               Hire me
             </Link>

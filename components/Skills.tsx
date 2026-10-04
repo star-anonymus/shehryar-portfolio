@@ -20,7 +20,7 @@ export default function Skills() {
 
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          index="04"
+          index="05"
           kicker="Technical stack"
           title="What I work with"
           description="Grouped by where each tool sits in the stack. Backend is home; the rest is how I ship the whole product."

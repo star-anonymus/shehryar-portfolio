@@ -14,7 +14,7 @@ export default function Experience() {
 
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          index="02"
+          index="03"
           kicker="Work history"
           title="Experience"
           description="Two engineering roles running in parallel, and a promotion inside a month at the one before."

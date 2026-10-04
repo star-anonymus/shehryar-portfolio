@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
+import Product from "@/components/Product";
 import Projects from "@/components/Projects";
 import Experience from "@/components/Experience";
 import Certifications from "@/components/Certifications";
@@ -28,9 +29,10 @@ export default function Home() {
       <PageAtmosphere />
       <Navbar />
 
-      {/* Order follows how a hiring manager reads: who, where they've worked, what they've built, then the toolbox */}
+      {/* Who I am, the product I sell, then the order a hiring manager reads: background, history, work, toolbox */}
       <main>
         <Hero />
+        <Product />
         <About />
         <Experience />
         <Projects />

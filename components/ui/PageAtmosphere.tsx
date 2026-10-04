@@ -14,7 +14,7 @@ export default function PageAtmosphere() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 120% 80% at 50% 0%, rgba(99,102,241,0.07) 0%, rgba(5,6,13,0) 60%)",
+            "radial-gradient(ellipse 120% 80% at 50% 0%, rgba(63,216,240,0.07) 0%, rgba(7,8,12,0) 60%)",
         }}
       />
 
@@ -37,7 +37,7 @@ export default function PageAtmosphere() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 85% 65% at 50% 50%, rgba(5,6,13,0) 40%, rgba(5,6,13,0.65) 100%)",
+            "radial-gradient(ellipse 85% 65% at 50% 50%, rgba(7,8,12,0) 40%, rgba(5,6,13,0.65) 100%)",
         }}
       />
 

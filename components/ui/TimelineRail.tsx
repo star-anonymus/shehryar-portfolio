@@ -29,7 +29,7 @@ export default function TimelineRail({
       />
       <motion.div
         aria-hidden
-        className="absolute bottom-4 top-4 hidden w-px origin-top bg-gradient-to-b from-cyan-300 via-indigo-400 to-violet-400 shadow-[0_0_12px_rgba(129,140,248,0.7)] sm:block"
+        className="absolute bottom-4 top-4 hidden w-px origin-top bg-gradient-to-b from-iris-400 to-lime shadow-[0_0_12px_rgba(63,216,240,0.6)] sm:block"
         style={{ left, scaleY: reduced ? 1 : scaleY }}
       />
       {children}

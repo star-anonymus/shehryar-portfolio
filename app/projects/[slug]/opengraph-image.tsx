@@ -14,7 +14,7 @@ export default async function Image({ params }: { params: Promise<{ slug: string
   const { slug } = await params;
   const project = getProject(slug);
 
-  const [from, to] = project ? accentHex[project.accent] : ["#6366f1", "#a855f7"];
+  const [from, to] = project ? accentHex[project.accent] : ["#19c3e0", "#0e7490"];
   const title = project?.title ?? site.name;
   const summary = project?.summary ?? site.tagline;
   const tags = project?.tags.slice(0, 5) ?? [];

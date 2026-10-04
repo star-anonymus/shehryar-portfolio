@@ -55,13 +55,13 @@ export default function Portrait() {
         className="absolute -inset-10 -z-10 rounded-full opacity-70 blur-3xl"
         style={{
           background:
-            "radial-gradient(circle at 50% 40%, rgba(99,102,241,0.38), rgba(168,85,247,0.18) 45%, transparent 70%)",
+            "radial-gradient(circle at 50% 40%, rgba(63,216,240,0.30), rgba(182,242,58,0.08) 50%, transparent 70%)",
         }}
       />
 
       <motion.div style={reduced ? undefined : { rotateX, rotateY }} className="[transform-style:preserve-3d]">
         {/* Frame */}
-        <div className="portrait-ring rounded-[2rem] p-[1.5px] shadow-[0_40px_120px_-30px_rgba(79,70,229,0.55)]">
+        <div className="portrait-ring rounded-[2rem] p-[1.5px] shadow-[0_40px_120px_-30px_rgba(14,116,144,0.6)]">
           {/* The frame's inside stays solid; only the photo layer wipes in, so the
               conic ring never shows through as a fill mid-reveal */}
           <div className="relative aspect-[4/5] overflow-hidden rounded-[calc(2rem-1.5px)] bg-ink-850">
@@ -85,8 +85,8 @@ export default function Portrait() {
             </motion.div>
 
             {/* Grade: cool the warm office light toward the site palette, fade the suit into the page */}
-            <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink-950/90 via-ink-950/10 to-indigo-500/10" />
-            <div aria-hidden className="absolute inset-0 bg-indigo-950/15" />
+            <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-ink-950/90 via-ink-950/10 to-cyan-500/10" />
+            <div aria-hidden className="absolute inset-0 bg-cyan-950/15" />
 
             <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-5">
               <div>
@@ -109,7 +109,7 @@ export default function Portrait() {
           transition={{ duration: 0.9, delay: 0.9, ease: EASE }}
           className="group absolute -left-8 -top-8 hidden h-28 w-28 items-center justify-center rounded-full sm:flex"
         >
-          <span className="absolute inset-0 rounded-full border border-white/10 bg-ink-900/80 backdrop-blur-md" />
+          <span className="absolute inset-0 rounded-full border border-white/10 bg-ink-900/95" />
           <svg viewBox="0 0 100 100" className="spin-slow absolute inset-1.5 h-[calc(100%-0.75rem)] w-[calc(100%-0.75rem)]" aria-hidden>
             <defs>
               <path id="badge-circle" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0" />
@@ -121,7 +121,7 @@ export default function Portrait() {
               </textPath>
             </text>
           </svg>
-          <span className="relative flex h-10 w-10 items-center justify-center rounded-full bg-indigo-600 text-white transition-transform duration-300 group-hover:rotate-[-45deg] group-hover:scale-110">
+          <span className="relative flex h-10 w-10 items-center justify-center rounded-full bg-iris-400 text-signal-ink transition-transform duration-300 group-hover:rotate-[-45deg] group-hover:scale-110">
             <ArrowDownRight size={18} />
           </span>
         </motion.a>
@@ -148,7 +148,7 @@ export default function Portrait() {
           style={{ "--float": "8px", "--float-dur": "6s" } as React.CSSProperties}
           className="float-y flex items-center gap-3 rounded-2xl border border-white/10 bg-ink-900/95 px-3.5 py-2.5 shadow-xl will-change-transform"
         >
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-500/15 text-indigo-300">
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-lime/15 text-lime">
             <Code2 size={16} />
           </span>
           <span className="leading-tight">

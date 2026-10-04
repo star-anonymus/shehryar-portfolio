@@ -30,7 +30,7 @@ export default async function Image() {
             height: 760,
             borderRadius: 999,
             background:
-              "radial-gradient(circle, rgba(99,102,241,0.55) 0%, rgba(99,102,241,0) 68%)",
+              "radial-gradient(circle, rgba(63,216,240,0.55) 0%, rgba(63,216,240,0) 68%)",
           }}
         />
         <div
@@ -42,7 +42,7 @@ export default async function Image() {
             height: 640,
             borderRadius: 999,
             background:
-              "radial-gradient(circle, rgba(168,85,247,0.40) 0%, rgba(168,85,247,0) 70%)",
+              "radial-gradient(circle, rgba(182,242,58,0.18) 0%, rgba(182,242,58,0) 70%)",
           }}
         />
         <div
@@ -66,7 +66,7 @@ export default async function Image() {
             left: 0,
             right: 0,
             height: 6,
-            background: "linear-gradient(90deg, #6366f1, #a855f7, #22d3ee)",
+            background: "linear-gradient(90deg, #19c3e0, #0e7490, #22d3ee)",
           }}
         />
 
@@ -79,11 +79,11 @@ export default async function Image() {
               fontSize: 22,
               letterSpacing: 6,
               textTransform: "uppercase",
-              color: "#818cf8",
+              color: "#3fd8f0",
               fontWeight: 600,
             }}
           >
-            <div style={{ width: 44, height: 2, background: "#818cf8" }} />
+            <div style={{ width: 44, height: 2, background: "#3fd8f0" }} />
             Software Engineer
           </div>
 

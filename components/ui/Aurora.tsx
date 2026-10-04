@@ -12,14 +12,14 @@ export default function Aurora({ variant = "page" }: { variant?: "page" | "hero"
         className="drift-a absolute -top-[28rem] left-1/2 h-[46rem] w-[46rem] -translate-x-1/2 rounded-full"
         style={{
           background:
-            "radial-gradient(circle, rgba(99,102,241,0.30) 0%, rgba(99,102,241,0) 68%)",
+            "radial-gradient(circle, rgba(63,216,240,0.30) 0%, rgba(63,216,240,0) 68%)",
         }}
       />
       <div
         className="drift-b absolute -left-56 top-24 h-[34rem] w-[34rem] rounded-full"
         style={{
           background:
-            "radial-gradient(circle, rgba(168,85,247,0.20) 0%, rgba(168,85,247,0) 70%)",
+            "radial-gradient(circle, rgba(182,242,58,0.08) 0%, rgba(182,242,58,0) 70%)",
         }}
       />
       <div

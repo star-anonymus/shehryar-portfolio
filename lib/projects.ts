@@ -22,6 +22,37 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "shehryar-lead-generator",
+    title: "Shehryar Lead Generator — AI Client Desk",
+    summary:
+      "My own product: a Windows app that finds clients, projects and jobs, and writes every message for you.",
+    description:
+      "A desktop app I designed, built and sell. It searches LinkedIn and Instagram for people who want to hire right now, audits local businesses' websites and writes honest outreach emails, scores Freelancer.com projects and remote jobs, drafts replies to your inbox, and turns this week's trends into LinkedIn posts — with nothing sent until you approve it.",
+    details: [
+      "Electron shell over an Express API and a SQLite database, with a Chrome MV3 extension doing the browser work inside the user's own logged-in Chrome — so it never asks for a password and never trips a CAPTCHA.",
+      "Claude does the reading and writing: buyer-phrase search plans, lead scoring with a reason, per-post comments and DMs, website-audit emails that lead with what's good, and bids. Gemini handles the voice assistant, Ghulam, which takes commands in English or Roman Urdu.",
+      "Everything is paced like a person and capped by daily limits per platform. WhatsApp opens pre-typed and the user presses Send; emails go only to addresses a business published itself, with UK PECR and Canadian CASL rules checked before sending.",
+      "Sold as a one-time licence with a 14-day trial: trial builds lock themselves after 14 days and unlock with a key signed for that PC.",
+    ],
+    highlights: [
+      "Client Hunt: AI buyer-phrase searches on LinkedIn & Instagram, only people hiring now",
+      "Local Biz: finds businesses with no or weak websites and audits them honestly",
+      "Freelancer.com projects and remote jobs scored, with bids, CVs and emails drafted",
+      "Inbox and comment replies drafted; one-click WhatsApp that the user sends",
+      "Ghulam, a voice assistant in English and Roman Urdu",
+      "Own Chrome via an MV3 extension — no passwords, human pacing, daily limits",
+      "Trial licensing: HMAC-signed keys per PC, tamper and clock-rollback checks",
+    ],
+    tags: ["Electron", "TypeScript", "Express", "SQLite", "Chrome MV3", "Claude API", "Gemini", "Playwright"],
+    github: null,
+    demo: "https://shehryar-lead-generator.vercel.app",
+    featured: true,
+    category: "My Product",
+    monogram: "SL",
+    accent: "cyan",
+    year: "2026",
+  },
+  {
     slug: "medifind",
     title: "MediFind — Healthcare Emergency System",
     summary:
@@ -432,7 +463,7 @@ export const accentClasses: Record<Accent, { text: string; bg: string; border: s
 
 /** Hex values for the same accents — ImageResponse can't use Tailwind classes. */
 export const accentHex: Record<Accent, [string, string]> = {
-  iris: ["#6366f1", "#a855f7"],
+  iris: ["#19c3e0", "#0e7490"],
   violet: ["#8b5cf6", "#d946ef"],
   cyan: ["#22d3ee", "#0ea5e9"],
   rose: ["#f43f5e", "#fb923c"],

@@ -12,7 +12,7 @@ export default function Certifications() {
       <SectionGlow accent="amber" position="right" size={26} intensity={0.09} />
 
       <div className="mx-auto max-w-6xl">
-        <SectionHeading index="05" kicker="Credentials" title="Certifications" />
+        <SectionHeading index="06" kicker="Credentials" title="Certifications" />
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {certifications.map((c, i) => {

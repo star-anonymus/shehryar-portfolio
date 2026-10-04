@@ -14,9 +14,10 @@ export default function About() {
       <SectionGlow accent="violet" position="left" size={32} intensity={0.13} />
 
       <div className="mx-auto max-w-6xl">
-        <Reveal className="mb-10 flex items-center gap-3">
-          <span className="kicker">01 — About me</span>
-          <span className="h-px flex-1 bg-gradient-to-r from-indigo-400/40 to-transparent" />
+        <Reveal className="mb-10 flex items-end gap-4">
+          <span aria-hidden className="text-outline font-display text-[clamp(3.2rem,7vw,5.2rem)] font-bold leading-[0.8] tracking-[-0.04em]">02</span>
+          <span className="kicker pb-1.5">About me</span>
+          <span className="mb-3 h-px flex-1 bg-gradient-to-r from-iris-400/45 to-transparent" />
         </Reveal>
 
         <h2 className="sr-only">About me</h2>

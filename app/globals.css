@@ -4,26 +4,40 @@
    Aurora Noir — design tokens
    ────────────────────────────────────────────────────────────── */
 @theme {
-  /* Surfaces: deep space blues, never pure black */
-  --color-ink-950: #05060d;
-  --color-ink-900: #080a14;
-  --color-ink-850: #0b0e1a;
-  --color-ink-800: #101424;
-  --color-ink-700: #181d31;
-  --color-ink-600: #232941;
+  /* Surfaces: graphite, a hair of blue — never pure black */
+  --color-ink-950: #07080c;
+  --color-ink-900: #0b0d13;
+  --color-ink-850: #0f1219;
+  --color-ink-800: #141823;
+  --color-ink-700: #1c2130;
+  --color-ink-600: #283044;
 
   /* Text */
-  --color-chalk: #eef1f8;
-  --color-mist: #a7b0c6;
-  --color-fog: #6e7894;
+  --color-chalk: #eef2f6;
+  --color-mist: #aab3c3;
+  --color-fog: #7d879b;
 
-  /* Aurora accents */
-  --color-iris-400: #818cf8;
-  --color-iris-500: #6366f1;
-  --color-iris-600: #4f46e5;
-  --color-violet-glow: #a855f7;
-  --color-cyan-glow: #22d3ee;
-  --color-rose-glow: #f472b6;
+  /* Signal accents: cyan carries the brand, lime marks what is live */
+  --color-iris-400: #3fd8f0;
+  --color-iris-500: #19c3e0;
+  --color-iris-600: #0e93ad;
+  --color-violet-glow: #b6f23a;
+  --color-cyan-glow: #3fd8f0;
+  --color-rose-glow: #ff8f6b;
+  --color-signal: #3fd8f0;
+  --color-signal-ink: #021317;
+  --color-lime: #b6f23a;
+
+  /* Tailwind's indigo is remapped to the signal cyan, so every older
+     indigo-* class (project pages, shared bits) follows the new palette.
+     600 stays dark enough for white text (5.4:1). */
+  --color-indigo-100: #d6f8fd;
+  --color-indigo-200: #a8eff9;
+  --color-indigo-300: #6fe3f5;
+  --color-indigo-400: #3fd8f0;
+  --color-indigo-500: #0ea5c4;
+  --color-indigo-600: #0e7490;
+  --color-indigo-700: #155e75;
 
   /* Typography */
   --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
@@ -75,7 +89,7 @@ body {
   background: var(--color-ink-900);
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--color-iris-500), var(--color-violet-glow));
+  background: linear-gradient(180deg, var(--color-iris-500), var(--color-iris-600));
   border-radius: 99px;
   border: 3px solid var(--color-ink-950);
 }
@@ -87,7 +101,7 @@ body {
    Text treatments
    ────────────────────────────────────────────────────────────── */
 .text-aurora {
-  background: linear-gradient(110deg, #a5b4fc 0%, #c084fc 35%, #22d3ee 70%, #a5b4fc 100%);
+  background: linear-gradient(110deg, #8ff0ff 0%, #3fd8f0 40%, #b6f23a 100%);
   background-size: 250% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -129,7 +143,7 @@ body {
 }
 
 .glass-strong {
-  background: rgba(11, 14, 26, 0.72);
+  background: rgba(11, 13, 19, 0.82);
   border: 1px solid rgba(255, 255, 255, 0.09);
   backdrop-filter: blur(20px) saturate(140%);
   -webkit-backdrop-filter: blur(20px) saturate(140%);
@@ -222,7 +236,7 @@ body {
   border-radius: inherit;
   background: radial-gradient(
     380px circle at var(--mx, 50%) var(--my, 0%),
-    rgba(129, 140, 248, 0.16),
+    rgba(63, 216, 240, 0.13),
     transparent 62%
   );
   opacity: 0;
@@ -339,7 +353,7 @@ body {
    Misc
    ────────────────────────────────────────────────────────────── */
 .glow-iris {
-  box-shadow: 0 10px 40px -12px rgba(99, 102, 241, 0.55);
+  box-shadow: 0 10px 40px -12px rgba(63, 216, 240, 0.45);
 }
 .glow-soft {
   box-shadow:
@@ -425,6 +439,152 @@ body {
 }
 .intro-skip .preloader {
   display: none;
+}
+
+/* ──────────────────────────────────────────────────────────────
+   Signal — the redesign's own pieces. Everything that moves here
+   moves by transform or opacity only, so the compositor runs it
+   and an integrated GPU never re-rasters a frame for it.
+   ────────────────────────────────────────────────────────────── */
+
+/* Below-the-fold sections skip layout and paint until they come near */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
+/* Dot grid used behind the hero and the product section */
+.dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.075) 1px, transparent 1.2px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse 70% 65% at 50% 40%, #000 30%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 65% at 50% 40%, #000 30%, transparent 85%);
+}
+
+/* A soft band of light that sweeps down a layer (a transformed child, not a background-position) */
+@keyframes sweep-y {
+  from {
+    transform: translate3d(0, -40%, 0);
+  }
+  to {
+    transform: translate3d(0, 260%, 0);
+  }
+}
+.sweep {
+  animation: sweep-y 7s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  will-change: transform;
+}
+
+/* Orbit: the ring turns, each chip turns back the same amount so the text stays upright */
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes orbit-back {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+.orbit {
+  animation: orbit var(--orbit-dur, 48s) linear infinite;
+  will-change: transform;
+}
+.orbit-item {
+  animation: orbit-back var(--orbit-dur, 48s) linear infinite;
+}
+
+/* HUD reactor rings for the product section */
+.spin-a {
+  animation: orbit 26s linear infinite;
+}
+.spin-b {
+  animation: orbit-back 38s linear infinite;
+}
+.spin-c {
+  animation: orbit 14s linear infinite;
+}
+.spin-a,
+.spin-b,
+.spin-c {
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+  will-change: transform;
+}
+
+/* Primary button: solid signal with dark ink (8.9:1) */
+.btn-signal {
+  background: var(--color-signal);
+  color: var(--color-signal-ink);
+  box-shadow: 0 10px 34px -12px rgba(63, 216, 240, 0.6);
+  transition:
+    transform 0.25s var(--ease-out-expo),
+    background-color 0.2s ease;
+}
+.btn-signal:hover {
+  background: #7ae6f7;
+}
+.btn-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--color-chalk);
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.25s var(--ease-out-expo);
+}
+.btn-ghost:hover {
+  border-color: rgba(63, 216, 240, 0.45);
+  background: rgba(63, 216, 240, 0.06);
+}
+
+/* HUD frame: four corner brackets drawn with gradients, no extra elements */
+.hud-corners {
+  background:
+    linear-gradient(var(--hud, #3fd8f0), var(--hud, #3fd8f0)) top left / 18px 1.5px,
+    linear-gradient(var(--hud, #3fd8f0), var(--hud, #3fd8f0)) top left / 1.5px 18px,
+    linear-gradient(var(--hud, #3fd8f0), var(--hud, #3fd8f0)) top right / 18px 1.5px,
+    linear-gradient(var(--hud, #3fd8f0), var(--hud, #3fd8f0)) top right / 1.5px 18px,
+    linear-gradient(var(--hud, #3fd8f0), var(--hud, #3fd8f0)) bottom left / 18px 1.5px,
+    linear-gradient(var(--hud, #3fd8f0), var(--hud, #3fd8f0)) bottom left / 1.5px 18px,
+    linear-gradient(var(--hud, #3fd8f0), var(--hud, #3fd8f0)) bottom right / 18px 1.5px,
+    linear-gradient(var(--hud, #3fd8f0), var(--hud, #3fd8f0)) bottom right / 1.5px 18px;
+  background-repeat: no-repeat;
+}
+
+/* Gradient hairline border (static) */
+.edge-signal {
+  position: relative;
+  isolation: isolate;
+}
+.edge-signal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(140deg, rgba(63, 216, 240, 0.55), rgba(255, 255, 255, 0.06) 40%, rgba(182, 242, 58, 0.35));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Two marquee rows in opposite directions */
+.marquee-track.reverse {
+  animation-direction: reverse;
+}
+
+/* Number outline for big section indexes */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.16);
 }
 
 /* ──────────────────────────────────────────────────────────────
