@@ -146,7 +146,7 @@ export default function Hero() {
               phrases={[
                 "Full-Stack Software Engineer",
                 "Backend: NestJS · Spring Boot · .NET",
-                "Builder of Shehryar Lead Generator",
+                "Builder of ClientoraHQ",
                 "Flutter & React Developer",
                 "AI SaaS, end to end",
               ]}

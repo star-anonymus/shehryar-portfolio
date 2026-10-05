@@ -102,7 +102,7 @@ function Showcase() {
             <span className="h-2.5 w-2.5 rounded-full bg-[#ffbd2e]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
             <span className="ml-3 truncate font-mono text-[0.68rem] tracking-wide text-fog">
-              Shehryar Lead Generator — <span className="text-iris-400">{screen.label}</span>
+              ClientoraHQ — <span className="text-iris-400">{screen.label}</span>
             </span>
           </div>
 
@@ -208,7 +208,7 @@ export default function Product() {
 
           <Reveal delay={0.05}>
             <h2 className="mt-6 font-display text-[clamp(2.4rem,5.6vw,4.4rem)] font-bold leading-[0.98] tracking-[-0.04em] text-chalk">
-              Shehryar <span className="text-aurora">Lead Generator</span>
+              Clientora<span className="text-aurora">HQ</span>
             </h2>
           </Reveal>
 

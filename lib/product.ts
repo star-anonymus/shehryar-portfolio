@@ -1,10 +1,10 @@
 /** The product I build and sell — shown as its own section on the home page. */
 export const leadGenerator = {
-  name: "Shehryar Lead Generator",
-  url: "https://shehryar-lead-generator.vercel.app",
-  demoUrl: "https://shehryar-lead-generator.vercel.app/#demo",
-  pricingUrl: "https://shehryar-lead-generator.vercel.app/#pricing",
-  slug: "shehryar-lead-generator",
+  name: "ClientoraHQ",
+  url: "https://clientorahq.com",
+  demoUrl: "https://clientorahq.com/#demo",
+  pricingUrl: "https://clientorahq.com/#pricing",
+  slug: "clientorahq",
   tagline: "An AI desk for Windows that finds clients, projects and jobs — and writes every message for you.",
   price: "From $400 one-time",
   trial: "14-day trial · $50",

@@ -22,8 +22,8 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "shehryar-lead-generator",
-    title: "Shehryar Lead Generator — AI Client Desk",
+    slug: "clientorahq",
+    title: "ClientoraHQ — AI Client Finder",
     summary:
       "My own product: a Windows app that finds clients, projects and jobs, and writes every message for you.",
     description:
@@ -45,7 +45,7 @@ export const projects: Project[] = [
     ],
     tags: ["Electron", "TypeScript", "Express", "SQLite", "Chrome MV3", "Claude API", "Gemini", "Playwright"],
     github: null,
-    demo: "https://shehryar-lead-generator.vercel.app",
+    demo: "https://clientorahq.com",
     featured: true,
     category: "My Product",
     monogram: "SL",
