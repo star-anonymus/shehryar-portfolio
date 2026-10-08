@@ -185,7 +185,7 @@ function Showcase() {
 
 export default function Product() {
   return (
-    <section id="lead-generator" className="relative overflow-hidden px-5 py-28 sm:px-6 sm:py-36">
+    <section id="clientorahq" className="relative overflow-hidden px-5 py-28 sm:px-6 sm:py-36">
       {/* Static atmosphere: a dot grid and one cyan wash */}
       <div aria-hidden className="dot-grid pointer-events-none absolute inset-0" />
       <div

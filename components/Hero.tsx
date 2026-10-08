@@ -100,7 +100,7 @@ export default function Hero() {
           {/* The product, introduced before anything else */}
           <motion.a
             {...item(0.05, 12)}
-            href="#lead-generator"
+            href="#clientorahq"
             className="group mb-7 inline-flex max-w-full items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] py-1.5 pl-1.5 pr-4 text-xs text-mist transition-colors hover:border-iris-400/40"
           >
             <span className="rounded-full bg-lime px-2.5 py-1 font-mono text-[0.62rem] font-bold uppercase tracking-wider text-signal-ink">New</span>
@@ -215,7 +215,7 @@ export default function Hero() {
 
       {/* Scroll cue */}
       <motion.a
-        href="#lead-generator"
+        href="#clientorahq"
         {...item(1.4, 0)}
         aria-label="Scroll to my product"
         className="relative z-10 mx-auto mt-6 hidden flex-col items-center gap-1.5 text-fog transition-colors hover:text-mist sm:flex"

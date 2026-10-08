@@ -9,7 +9,7 @@ import Magnetic from "./ui/Magnetic";
 import { site } from "@/lib/site";
 
 const links = [
-  { href: "/#lead-generator", id: "lead-generator", label: "Product" },
+  { href: "/#clientorahq", id: "clientorahq", label: "Product" },
   { href: "/#about", id: "about", label: "About" },
   { href: "/#experience", id: "experience", label: "Experience" },
   { href: "/#work", id: "work", label: "Work" },
