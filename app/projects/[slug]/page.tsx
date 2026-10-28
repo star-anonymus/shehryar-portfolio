@@ -104,6 +104,7 @@ export default async function ProjectPage({ params }: Props) {
               accent={project.accent}
               monogram={project.monogram}
               category={project.category}
+            image={project.image}
               size="lg"
               className="aspect-[2/1] rounded-2xl border border-white/8"
             />

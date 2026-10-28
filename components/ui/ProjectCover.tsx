@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { accentHex, type Accent } from "@/lib/projects";
 
 interface ProjectCoverProps {
@@ -8,6 +9,8 @@ interface ProjectCoverProps {
   className?: string;
   /** Larger type and more breathing room, for featured cards and detail pages. */
   size?: "sm" | "lg";
+  /** A screenshot of the live site (public path). Shown instead of the monogram when there is one. */
+  image?: string;
 }
 
 /**
@@ -24,6 +27,7 @@ export default function ProjectCover({
   category,
   className = "",
   size = "sm",
+  image,
 }: ProjectCoverProps) {
   const [from, to] = accentHex[accent];
   const lg = size === "lg";
@@ -73,8 +77,20 @@ export default function ProjectCover({
         }}
       />
 
+      {/* The live site, top of the page first */}
+      {image && (
+        <Image
+          src={image}
+          alt=""
+          fill
+          sizes={lg ? "(min-width: 1024px) 960px, 100vw" : "(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"}
+          className="object-cover object-top"
+        />
+      )}
+
       {/* Ghosted monogram */}
       <div
+        hidden={!!image}
         className={`absolute font-display font-bold leading-none tracking-tighter text-white/[0.07] ${
           lg ? "-bottom-6 -right-2 text-[10rem]" : "-bottom-3 -right-1 text-[5.5rem]"
         }`}

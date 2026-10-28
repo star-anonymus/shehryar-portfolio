@@ -19,6 +19,7 @@ function FeaturedCard({ p, n }: { p: Project; n: number }) {
             accent={p.accent}
             monogram={p.monogram}
             category={p.category}
+            image={p.image}
             size="lg"
             className="aspect-[16/10] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04] md:aspect-auto md:h-full md:min-h-[24rem]"
           />
@@ -131,7 +132,7 @@ export default function Projects() {
             <Reveal key={p.slug} delay={(i % 3) * 0.06}>
               <SpotlightCard as="article" className="group h-full overflow-hidden rounded-2xl">
                 <Link href={`/projects/${p.slug}`} className="block" tabIndex={-1} aria-hidden>
-                  <ProjectCover accent={p.accent} monogram={p.monogram} category={p.category} className="aspect-[16/9]" />
+                  <ProjectCover accent={p.accent} monogram={p.monogram} category={p.category} image={p.image} className="aspect-[16/9]" />
                 </Link>
 
                 <div className="flex flex-col p-5">

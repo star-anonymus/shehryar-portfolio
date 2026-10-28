@@ -12,6 +12,8 @@ export interface Project {
   tags: string[];
   github: string | null;
   demo: string | null;
+  /** A screenshot of the live site under /public, shown on the card and the project page. */
+  image?: string;
   featured: boolean;
   category: string;
   /** Two letters drawn behind the generated cover art. */
@@ -46,6 +48,7 @@ export const projects: Project[] = [
     tags: ["Electron", "TypeScript", "Express", "SQLite", "Chrome MV3", "Claude API", "Gemini", "Playwright"],
     github: null,
     demo: "https://clientorahq.com",
+    image: "/projects/clientorahq.webp",
     featured: true,
     category: "My Product",
     monogram: "SL",
@@ -135,6 +138,7 @@ export const projects: Project[] = [
     tags: ["React", "TypeScript", "Node.js", "RunPod", "AI", "SaaS"],
     github: "https://github.com/quantumsynergysols-web/Quantum-Framers",
     demo: "https://quantumframer.com",
+    image: "/projects/quantum-framer.webp",
     featured: true,
     category: "AI SaaS",
     monogram: "QF",
@@ -150,6 +154,7 @@ export const projects: Project[] = [
     tags: ["React", "TypeScript", "Vite", "Tailwind v4", "AI Chatbot"],
     github: "https://github.com/star-anonymus/vytal-health",
     demo: "https://vytal-health.vercel.app",
+    image: "/projects/vytal-health.webp",
     featured: false,
     category: "AI SaaS",
     monogram: "VH",
@@ -176,6 +181,7 @@ export const projects: Project[] = [
     tags: ["Astro", "TypeScript", "Tailwind CSS", "WhatsApp", "Google Apps Script", "SEO"],
     github: null,
     demo: "https://fixdrop-demo.vercel.app",
+    image: "/projects/fixdrop.webp",
     featured: false,
     category: "Website",
     monogram: "FD",
@@ -201,6 +207,7 @@ export const projects: Project[] = [
     tags: ["HTML", "CSS", "JavaScript", "Responsive Design", "UI/UX"],
     github: null,
     demo: "https://pearlstudio-demo.vercel.app",
+    image: "/projects/pearl-studio.webp",
     featured: false,
     category: "Website",
     monogram: "PS",
