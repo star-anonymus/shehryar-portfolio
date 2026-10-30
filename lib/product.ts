@@ -6,8 +6,8 @@ export const leadGenerator = {
   pricingUrl: "https://clientorahq.com/#pricing",
   slug: "clientorahq",
   tagline: "An AI desk for Windows that finds clients, projects and jobs — and writes every message for you.",
-  price: "From $400 one-time",
-  trial: "14-day trial · $50",
+  price: "$300 one-time (launch offer, usually $400)",
+  trial: "14-day trial · $25, deducted if you buy",
   /** Each screen of the app, cycled in the showcase window. */
   screens: [
     { src: "/products/slg/command.webp", label: "Command", caption: "Ghulam, the assistant — speak or type in English or Roman Urdu" },
